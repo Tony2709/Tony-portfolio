@@ -1,0 +1,78 @@
+---
+import { workSamples } from "../data/content";
+---
+
+<section id="work" class="bg-bg-alt/60 py-20 md:py-28">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="max-w-2xl">
+      <span class="text-xs font-semibold uppercase tracking-wide text-accent">More work</span>
+      <h2 class="mt-3 font-display text-3xl text-ink sm:text-4xl">Published, shipped, still live.</h2>
+    </div>
+
+    <div class="mt-12 space-y-8">
+      {
+        workSamples.map((sample) => (
+          <article class="rounded-2xl border border-line bg-surface p-7 sm:p-9">
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <h3 class="font-display text-2xl text-ink">{sample.company}</h3>
+                <p class="mt-1 text-sm font-medium text-accent">{sample.role}</p>
+                <p class="mt-1 text-sm text-ink-soft">{sample.meta}</p>
+              </div>
+              <a
+                href={sample.link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cursor-pointer whitespace-nowrap rounded-full border border-line px-4 py-2 text-sm font-medium text-ink transition-colors duration-200 hover:border-accent hover:text-accent"
+              >
+                {sample.link.label} ↗
+              </a>
+            </div>
+
+            <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+              {sample.points.map((point) => (
+                <li class="flex gap-3 text-sm leading-relaxed text-ink-soft">
+                  <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+
+            {sample.posts.length > 0 && (
+              <div class="mt-6 border-t border-line pt-5">
+                <p class="text-xs font-semibold uppercase tracking-wide text-ink-soft">Live blog posts</p>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {sample.posts.map((post) => (
+                    <a
+                      href={post.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="cursor-pointer rounded-full bg-accent-soft px-3.5 py-1.5 text-xs font-medium text-accent transition-colors duration-200 hover:bg-accent hover:text-accent-ink"
+                    >
+                      {post.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {sample.designs.length > 0 && (
+              <div class="mt-4 flex flex-wrap gap-2">
+                {sample.designs.map((design) => (
+                  <a
+                    href={design.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="cursor-pointer text-xs font-medium text-ink-soft underline decoration-line underline-offset-4 transition-colors duration-200 hover:text-accent"
+                  >
+                    {design.label} ↗
+                  </a>
+                ))}
+              </div>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

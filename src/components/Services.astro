@@ -1,0 +1,37 @@
+---
+import { services } from "../data/content";
+---
+
+<section id="services" class="bg-bg-alt/60 py-20 md:py-28">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="max-w-2xl">
+      <span class="text-xs font-semibold uppercase tracking-wide text-accent">What I do</span>
+      <h2 class="mt-3 font-display text-3xl text-ink sm:text-4xl">
+        A full-stack marketer, plus an AI-assisted edge.
+      </h2>
+    </div>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        services.map((service) => (
+          <div
+            class:list={[
+              "rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1",
+              service.featured
+                ? "border-accent/40 bg-accent-soft/60 shadow-lg shadow-accent/10"
+                : "border-line bg-surface",
+            ]}
+          >
+            {service.featured && (
+              <span class="mb-3 inline-block rounded-full bg-accent px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent-ink">
+                Differentiator
+              </span>
+            )}
+            <h3 class="font-display text-lg text-ink">{service.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-soft">{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

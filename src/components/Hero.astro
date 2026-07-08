@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import heroPhoto from "../assets/tony-hero.png";
+import { hero, site } from "../data/content";
+---
+
+<section id="top" class="relative overflow-hidden">
+  <div class="pointer-events-none absolute inset-0 -z-10 bg-bg-alt/60"></div>
+
+  <div class="mx-auto grid max-w-6xl items-center gap-12 px-6 pb-20 pt-16 md:grid-cols-2 md:pb-28 md:pt-24">
+    <div class="animate-fade-up">
+      <span
+        class="inline-block rounded-full border border-accent/30 bg-accent-soft px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-accent"
+      >
+        {hero.eyebrow}
+      </span>
+
+      <h1 class="balance mt-6 font-display text-4xl leading-[1.1] text-ink sm:text-5xl lg:text-6xl">
+        {hero.headline}
+      </h1>
+
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
+        {hero.subhead}
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a
+          href={hero.primaryCta.href}
+          class="cursor-pointer rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-ink shadow-lg shadow-accent/20 transition-transform duration-200 hover:scale-105"
+        >
+          {hero.primaryCta.label}
+        </a>
+        <a
+          href={hero.secondaryCta.href}
+          class="cursor-pointer rounded-full border border-line px-7 py-3.5 text-sm font-semibold text-ink transition-colors duration-200 hover:border-accent hover:text-accent"
+        >
+          {hero.secondaryCta.label} ↓
+        </a>
+      </div>
+
+      <p class="mt-8 text-sm text-ink-soft">{site.location} · Marketing Coordinator, GOAT Financial Services</p>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-sm animate-fade-up md:max-w-md" style="animation-delay: 120ms">
+      <div
+        class="absolute inset-x-6 top-8 -z-10 aspect-square rounded-[40%_60%_55%_45%/45%_45%_55%_55%] bg-gradient-to-br from-accent/25 via-accent-soft to-transparent blur-2xl"
+      >
+      </div>
+      <Image
+        src={heroPhoto}
+        alt={`${site.name} smiling in a navy suit`}
+        width={720}
+        height={960}
+        class="relative mx-auto h-auto w-full drop-shadow-2xl"
+        priority
+      />
+    </div>
+  </div>
+</section>
