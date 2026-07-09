@@ -39,6 +39,49 @@ import { hero, site } from "../data/content";
       </div>
 
       <p class="mt-8 text-sm text-ink-soft">{site.location} · Marketing Coordinator, GOAT Financial Services</p>
+
+      <div class="mt-5 flex flex-wrap items-center gap-3">
+        <a
+          href={site.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-line px-4 py-2.5 text-sm font-medium text-ink-soft transition-colors duration-200 hover:border-accent hover:text-accent"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+          >
+            <rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /><path
+              d="M10 9v12M10 13a4 4 0 0 1 8 0v8"
+            />
+          </svg>
+          LinkedIn
+        </a>
+        <a
+          href={`mailto:${site.email}`}
+          class="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-line px-4 py-2.5 text-sm font-medium text-ink-soft transition-colors duration-200 hover:border-accent hover:text-accent"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2" /><path d="m2 7 10 6 10-6" />
+          </svg>
+          Email
+        </a>
+      </div>
     </div>
 
     <div class="relative mx-auto w-full max-w-sm animate-fade-up md:max-w-md" style="animation-delay: 120ms">
@@ -50,7 +93,6 @@ import { hero, site } from "../data/content";
         src={heroPhoto}
         alt={`${site.name} smiling in a navy suit`}
         width={720}
-        height={960}
         class="relative mx-auto h-auto w-full drop-shadow-2xl"
         priority
       />

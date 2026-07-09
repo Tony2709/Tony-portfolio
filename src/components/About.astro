@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import eventPhoto from "../assets/tony-event.jpg";
+import aboutPhoto from "../assets/tony-about.jpg";
 import { about } from "../data/content";
 ---
 
@@ -9,11 +9,10 @@ import { about } from "../data/content";
     <div class="relative mx-auto w-full max-w-xs md:mx-0">
       <div class="absolute -inset-3 -z-10 rounded-3xl border border-line"></div>
       <Image
-        src={eventPhoto}
-        alt="Tony Quang at an industry business event in Sydney"
+        src={aboutPhoto}
+        alt="Tony Quang smiling, wearing a chambray shirt"
         width={480}
-        height={854}
-        class="h-auto w-full rounded-2xl object-cover shadow-xl"
+        class="h-auto w-full rounded-2xl object-contain shadow-xl"
       />
     </div>
 

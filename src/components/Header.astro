@@ -4,11 +4,11 @@ import { nav, site } from "../data/content";
 
 <header class="sticky top-0 z-50 border-b border-line/70 bg-bg/85 backdrop-blur-md">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href="#top" class="font-display text-xl tracking-tight text-ink" aria-label={`${site.name} — home`}>
+    <a href="#top" class="font-display text-xl tracking-tight text-ink" aria-label={`${site.name} home`}>
       Tony<span class="text-accent">Quang</span>
     </a>
 
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+    <nav class="hidden items-center gap-8 lg:flex" aria-label="Primary">
       {
         nav.map((item) => (
           <a
@@ -69,7 +69,7 @@ import { nav, site } from "../data/content";
         aria-label="Open menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
-        class="cursor-pointer rounded-full border border-line p-2 text-ink-soft transition-colors duration-200 hover:border-accent hover:text-accent md:hidden"
+        class="cursor-pointer rounded-full border border-line p-2 text-ink-soft transition-colors duration-200 hover:border-accent hover:text-accent lg:hidden"
       >
         <svg
           id="icon-menu"
@@ -104,7 +104,7 @@ import { nav, site } from "../data/content";
   <nav
     id="mobile-menu"
     aria-label="Mobile"
-    class="hidden flex-col gap-1 border-t border-line/70 bg-bg px-6 py-4 md:hidden"
+    class="hidden flex-col gap-1 border-t border-line/70 bg-bg px-6 py-4 lg:hidden"
   >
     {
       nav.map((item) => (

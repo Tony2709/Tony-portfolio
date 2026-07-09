@@ -12,11 +12,11 @@
   --color-surface: #ffffff;
   --color-ink: #1b1a17;
   --color-ink-soft: #5b564c;
-  --color-accent: #c2410c;
-  --color-accent-soft: #fbe4d2;
+  --color-accent: #4338ca;
+  --color-accent-soft: #e0e7ff;
   --color-accent-ink: #ffffff;
   --color-line: #e6dfd2;
-  --color-ring: #c2410c;
+  --color-ring: #4338ca;
 
   --animate-fade-up: fade-up 0.6s ease-out both;
 
@@ -43,11 +43,11 @@
   --color-surface: #211e18;
   --color-ink: #f3efe6;
   --color-ink-soft: #b9b2a4;
-  --color-accent: #e2703a;
-  --color-accent-soft: #3a2416;
-  --color-accent-ink: #1b1006;
+  --color-accent: #818cf8;
+  --color-accent-soft: #1e1b4b;
+  --color-accent-ink: #0b1130;
   --color-line: #322c22;
-  --color-ring: #e2703a;
+  --color-ring: #818cf8;
 }
 
 @layer base {

@@ -7,7 +7,7 @@ interface Props {
   description?: string;
 }
 
-const { title = `${site.name} — ${site.title}`, description = site.description } = Astro.props;
+const { title = `${site.name} | ${site.title}`, description = site.description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL("/og-image.png", Astro.site);
 ---
@@ -38,8 +38,7 @@ const ogImageURL = new URL("/og-image.png", Astro.site);
 
     <script is:inline>
       const stored = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      if (stored === "dark" || (!stored && prefersDark)) {
+      if (stored !== "light") {
         document.documentElement.classList.add("dark");
       }
     </script>
