@@ -36,10 +36,10 @@ export const hero = {
 export const about = {
   heading: "About me",
   paragraphs: [
-    "Good marketing is rarely one skill. Most people treat it that way, which is usually why it fails. It is a system: brand voice, content, distribution, and measurement, each one dependent on the others. I work across all of it, on principle. Separating them was always the mistake.",
+    "Good marketing is rarely one skill. It is a system: brand voice, content, distribution, and measurement, each one dependent on the others. I work across all of it, on principle. Separating them was always the mistake.",
     "I started in recruitment marketing at Circle Recruitment & HR, then moved into financial services at GOAT Financial Services. Somewhere in between: a Master of Marketing from Macquarie University, on top of a business degree in finance and marketing from the University of Wollongong.",
-    "Here is what sets the work apart. I do not open a chat window and hope for the best. I build structured AI marketing workspaces: codified brand voice guidelines, customer profiles, and reusable content workflows, so the output stays on brand at scale while a human keeps hold of the strategy. Search is shifting toward AI-generated answers. AEO and GEO are not buzzwords to me; they are where I have already placed the bet.",
-    "The numbers matter, obviously. But tone is the thing I notice first, the detail that gives a brand away. One that sounds like itself, whether that is a blunt sports coach or a financial services firm, is one that has been paid proper attention. Most have not.",
+    "Here is what sets the work apart. I do not open a chat window and hope for the best. I build structured AI marketing workspaces: codified brand voice, customer profiles, and reusable workflows, so output stays on brand at scale while a human keeps the strategy. Search is shifting toward AI-generated answers; AEO and GEO are where I have already placed the bet.",
+    "The numbers matter, obviously. But tone is what I notice first. A brand that sounds like itself, whether a blunt sports coach or a financial services firm, is one that has been paid proper attention. Most have not.",
   ],
 };
 
