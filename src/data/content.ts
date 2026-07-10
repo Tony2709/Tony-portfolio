@@ -35,7 +35,7 @@ const en = {
     },
     work: {
       eyebrow: "More work",
-      heading: "Published, shipped, still live.",
+      heading: "Published, delivered, still live.",
       posts: "Live blog posts",
     },
     experience: {
