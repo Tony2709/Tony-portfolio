@@ -23,7 +23,7 @@ Run from the project root:
 
 All site copy lives in [`src/data/content.ts`](./src/data/content.ts) — edit that file to update text without touching component markup. Photos live in `src/assets/`.
 
-> **Note:** The featured case study currently anonymises the client as "a sports nutrition & performance coaching practice (Sunshine Coast, QLD)" per the source content notes. If the client has confirmed they're happy being named, update `caseStudy.client` and remove `caseStudy.clientNote` in `src/data/content.ts`.
+> **Note:** The featured case study names MJ Health Nutrition & Fitness with Tony's confirmation (July 2026) and links to mjhealthnutrition.com.au.
 
 Before going live, also update `SITE_URL` in [`astro.config.mjs`](./astro.config.mjs) and the `Sitemap:` line in [`public/robots.txt`](./public/robots.txt) to your real domain.
 

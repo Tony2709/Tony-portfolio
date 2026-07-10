@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import aboutPhoto from "../assets/tony-about.jpg";
-import { about } from "../data/content";
+import { getContent } from "../data/content";
+
+const { about } = getContent(Astro.currentLocale);
 ---
 
 <section id="about" class="mx-auto max-w-6xl px-6 py-20 md:py-28">

@@ -1,5 +1,7 @@
 ---
-import { stats } from "../data/content";
+import { getContent } from "../data/content";
+
+const { stats } = getContent(Astro.currentLocale);
 ---
 
 <section class="border-y border-line bg-bg-alt/60">

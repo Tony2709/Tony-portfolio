@@ -9,6 +9,10 @@ const SITE_URL = 'https://tonyquang.com';
 // https://astro.build/config
 export default defineConfig({
   site: SITE_URL,
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'vi'],
+  },
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],

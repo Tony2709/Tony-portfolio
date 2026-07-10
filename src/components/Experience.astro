@@ -1,11 +1,23 @@
 ---
-import { experience } from "../data/content";
+import { Image } from "astro:assets";
+import goatLogo from "../assets/goat-logo.jpg";
+import circleLogo from "../assets/circle-logo.png";
+import mjLogo from "../assets/mj-logo.png";
+import { getContent } from "../data/content";
+
+const { experience, ui } = getContent(Astro.currentLocale);
+
+const logos: Record<string, ImageMetadata> = {
+  "GOAT Financial Services": goatLogo,
+  "Circle Recruitment & HR": circleLogo,
+  "MJ Health Nutrition & Fitness": mjLogo,
+};
 ---
 
 <section id="experience" class="mx-auto max-w-6xl px-6 py-20 md:py-28">
   <div class="max-w-2xl">
-    <span class="text-xs font-semibold uppercase tracking-wide text-accent">Experience</span>
-    <h2 class="mt-3 font-display text-3xl text-ink sm:text-4xl">Where I've done the work.</h2>
+    <span class="text-xs font-semibold uppercase tracking-wide text-accent">{ui.experience.eyebrow}</span>
+    <h2 class="mt-3 font-display text-3xl text-ink sm:text-4xl">{ui.experience.heading}</h2>
   </div>
 
   <div class="mt-12 space-y-10 border-l border-line pl-8">
@@ -13,11 +25,25 @@ import { experience } from "../data/content";
       experience.map((role) => (
         <div class="relative">
           <span class="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-accent ring-4 ring-bg" />
-          <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 class="font-display text-xl text-ink">{role.role}</h3>
-            <span class="text-sm text-ink-soft">{role.period}</span>
+          <div class="flex items-start gap-3.5">
+            {logos[role.company] && (
+              <div class="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1 ring-1 ring-line">
+                <Image
+                  src={logos[role.company]}
+                  alt={`${role.company} logo`}
+                  width={88}
+                  class="h-auto w-full rounded object-contain"
+                />
+              </div>
+            )}
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-xl text-ink">{role.role}</h3>
+                <span class="text-sm text-ink-soft">{role.period}</span>
+              </div>
+              <p class="text-sm font-medium text-accent">{role.company}</p>
+            </div>
           </div>
-          <p class="text-sm font-medium text-accent">{role.company}</p>
           <ul class="mt-4 space-y-2.5">
             {role.points.map((point) => (
               <li class="flex gap-3 text-sm leading-relaxed text-ink-soft">

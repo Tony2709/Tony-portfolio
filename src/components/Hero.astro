@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import heroPhoto from "../assets/tony-hero.png";
-import { hero, site } from "../data/content";
+import { getContent } from "../data/content";
+
+const { hero, site, ui } = getContent(Astro.currentLocale);
 ---
 
 <section id="top" class="relative overflow-hidden">
@@ -38,7 +40,7 @@ import { hero, site } from "../data/content";
         </a>
       </div>
 
-      <p class="mt-8 text-sm text-ink-soft">{site.location} · Marketing Coordinator, GOAT Financial Services</p>
+      <p class="mt-8 text-sm text-ink-soft">{ui.hero.roleLine}</p>
 
       <div class="mt-5 flex flex-wrap items-center gap-3">
         <a
@@ -61,7 +63,7 @@ import { hero, site } from "../data/content";
               d="M10 9v12M10 13a4 4 0 0 1 8 0v8"
             />
           </svg>
-          LinkedIn
+          {ui.hero.linkedin}
         </a>
         <a
           href={`mailto:${site.email}`}
@@ -79,7 +81,7 @@ import { hero, site } from "../data/content";
           >
             <rect x="2" y="4" width="20" height="16" rx="2" /><path d="m2 7 10 6 10-6" />
           </svg>
-          Email
+          {ui.hero.email}
         </a>
       </div>
     </div>

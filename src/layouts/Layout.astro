@@ -1,24 +1,32 @@
 ---
 import "../styles/global.css";
-import { site } from "../data/content";
+import { getContent } from "../data/content";
 
 interface Props {
   title?: string;
   description?: string;
 }
 
+const locale = Astro.currentLocale === "vi" ? "vi" : "en";
+const { site } = getContent(locale);
+
 const { title = `${site.name} | ${site.title}`, description = site.description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL("/og-image.png", Astro.site);
+const enURL = new URL("/", Astro.site);
+const viURL = new URL("/vi/", Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={enURL} />
+    <link rel="alternate" hreflang="vi" href={viURL} />
+    <link rel="alternate" hreflang="x-default" href={enURL} />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
@@ -30,6 +38,7 @@ const ogImageURL = new URL("/og-image.png", Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content={locale === "vi" ? "vi_VN" : "en_AU"} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -37,8 +46,8 @@ const ogImageURL = new URL("/og-image.png", Astro.site);
     <meta name="twitter:image" content={ogImageURL} />
 
     <script is:inline>
-      const stored = localStorage.getItem("theme");
-      if (stored !== "light") {
+      // Dark is the default; only an explicit "light" choice opts out.
+      if (localStorage.getItem("theme") !== "light") {
         document.documentElement.classList.add("dark");
       }
     </script>
