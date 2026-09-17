@@ -1,3 +1,5 @@
+export type CaseStudyItem = { label: string; value?: number; note?: string };
+
 const en = {
   site: {
     name: "Tony Quang",
@@ -28,10 +30,6 @@ const en = {
       eyebrow: "What I do",
       heading: "A full-stack marketer, plus an AI-assisted edge.",
       badge: "Differentiator",
-    },
-    caseStudyPanel: {
-      heading: "Brand voice, scored",
-      sub: "From the 10-page brand voice report.",
     },
     work: {
       eyebrow: "More work",
@@ -68,7 +66,7 @@ const en = {
     { label: "What I Do", href: "#services" },
     { label: "Work", href: "#work" },
     { label: "Experience", href: "#experience" },
-    { label: "Case Study", href: "#case-study" },
+    { label: "Case Studies", href: "#case-study" },
     { label: "Contact", href: "#contact" },
   ],
 
@@ -130,49 +128,103 @@ const en = {
     },
   ],
 
-  caseStudy: {
-    eyebrow: "Featured Case Study",
-    client: "MJ Health Nutrition & Fitness",
-    clientMeta: "Sports nutrition & performance coaching · Sunshine Coast, QLD",
-    clientHref: "https://www.mjhealthnutrition.com.au/",
-    summary:
-      "A completed research and strategy project: a full brand-to-campaign marketing system for a dual-founder practice (an Accredited Sports Dietitian and an S&C Coach) helping teen and adult athletes fuel and train properly.",
-    context:
-      "Early growth stage: strong Instagram presence and referrals, but inconsistent bookings, a dormant email list, and no content targeting their most valuable niche: teen athletes and sports parents.",
-    deliverables: [
-      {
-        title: "Brand voice & visual identity analysis",
-        description:
-          "A 10-page brand voice report distilled into working guidelines: brand archetype (The Guide + The Friend), four scored voice dimensions, approved and banned vocabulary, and context-by-context tone rules, plus a visual system analysis.",
+  caseStudies: [
+    {
+      eyebrow: "Featured Case Study",
+      client: "MJ Health Nutrition & Fitness",
+      clientMeta: "Sports nutrition & performance coaching · Sunshine Coast, QLD",
+      clientHref: "https://www.mjhealthnutrition.com.au/",
+      summary:
+        "A completed research and strategy project: a full brand-to-campaign marketing system for a dual-founder practice (an Accredited Sports Dietitian and an S&C Coach) helping teen and adult athletes fuel and train properly.",
+      context:
+        "Early growth stage: strong Instagram presence and referrals, but inconsistent bookings, a dormant email list, and no content targeting their most valuable niche: teen athletes and sports parents.",
+      deliverables: [
+        {
+          title: "Brand voice & visual identity analysis",
+          description:
+            "A 10-page brand voice report distilled into working guidelines: brand archetype (The Guide + The Friend), four scored voice dimensions, approved and banned vocabulary, and context-by-context tone rules, plus a visual system analysis.",
+        },
+        {
+          title: "Positioning & audience strategy",
+          description:
+            "Competitive analysis across four competitor types, surfacing unoccupied territory: the \"two disciplines, one plan\" dual-founder angle and a direct-to-sports-parent voice no competitor was using. Detailed ideal customer profiles for both buyers.",
+        },
+        {
+          title: "Email reactivation campaign: \"Try Juzzy Free\"",
+          description:
+            "A complete 2-week campaign strategy to activate a list that had never been emailed: full campaign brief plus a ready-to-send 4-email sequence in the brand's voice: reactivation, problem-agitation, proof, and close.",
+        },
+        {
+          title: "Instagram carousel content series",
+          description:
+            "A series of six branded carousels on performance topics, built on reusable templates for ongoing use.",
+        },
+        {
+          title: "An AI-assisted marketing workspace",
+          description:
+            "The system behind all of it: brand voice, customer profiles, and business facts live as context files, and content workflows are brand-agnostic and reusable, so any future campaign pulls the brand context automatically.",
+        },
+      ],
+      panel: {
+        type: "bars",
+        heading: "Brand voice, scored",
+        sub: "From the 10-page brand voice report.",
+        items: [
+          { label: "Casual", value: 8 },
+          { label: "Playful", value: 6 },
+          { label: "Simple", value: 7 },
+          { label: "Bold", value: 7 },
+        ] as CaseStudyItem[],
       },
-      {
-        title: "Positioning & audience strategy",
-        description:
-          "Competitive analysis across four competitor types, surfacing unoccupied territory: the \"two disciplines, one plan\" dual-founder angle and a direct-to-sports-parent voice no competitor was using. Detailed ideal customer profiles for both buyers.",
+    },
+    {
+      eyebrow: "Case Study",
+      client: "Panther Fit",
+      clientMeta: "Gym and personal training studio · Thái Nguyên, Vietnam",
+      clientHref: "https://pantherfitt.com",
+      summary:
+        "A completed brand, website and local search project for a coaching led gym running two paid services on its own premises: small group bootcamp and one to one personal training.",
+      context:
+        "A fast growing, mid market studio winning almost every new member through referrals and organic Facebook video, with no paid advertising, no content system, and no presence on Google search. The real barrier was never time or budget. It was not knowing what to say.",
+      deliverables: [
+        {
+          title: "Brand context & positioning",
+          description:
+            "Mapped what happy members mention first when they refer a friend: community and atmosphere, then convenience and price, then results. Reframed the real competitor as procrastination and the memory of a bad gym, and named the core tension: friendliness is both the strongest asset and the unspoken worry.",
+        },
+        {
+          title: "Brand voice guidelines",
+          description:
+            "A friend who happens to be a good coach: warm, encouraging, everyday. Approved and banned vocabulary, do and don't rules, hard lines against gym bro hype, body shaming and wellness guru preaching, plus written examples for captions, referral invites, video hooks and price questions.",
+        },
+        {
+          title: "Ideal customer profile",
+          description:
+            "One persona covering both buyer groups, because they are usually the same person: the anxious returner, a busy office worker aged 30 to 45 who carries a bad gym memory and acts on a trusted friend's invitation rather than comparing studios.",
+        },
+        {
+          title: "Website build (live)",
+          description:
+            "Designed, built and launched pantherfitt.com in Vietnamese: home, about, services and contact pages, a mobile call bar, a contact form on its own authenticated domain email, and a homepage video that only loads on larger screens. Deployed from GitHub to Hostinger.",
+        },
+        {
+          title: "Local search foundations",
+          description:
+            "Set up the Google Business Profile with a 13 image photo set covering the space, team and classes, verified the domain in Google Search Console, submitted the sitemap, and corrected the map pin from the real profile after the earlier estimate sat nearly 900 metres off.",
+        },
+      ],
+      panel: {
+        type: "ranked",
+        heading: "Positioning, ranked",
+        sub: "What happy members mention first when they refer a friend.",
+        items: [
+          { label: "Community & atmosphere", note: "The brand. What gets said out loud." },
+          { label: "Convenience, location & price", note: "The practical reason to say yes." },
+          { label: "Results & programme", note: "True and necessary, but never the hook." },
+        ] as CaseStudyItem[],
       },
-      {
-        title: "Email reactivation campaign: \"Try Juzzy Free\"",
-        description:
-          "A complete 2-week campaign strategy to activate a list that had never been emailed: full campaign brief plus a ready-to-send 4-email sequence in the brand's voice: reactivation, problem-agitation, proof, and close.",
-      },
-      {
-        title: "Instagram carousel content series",
-        description:
-          "A series of six branded carousels on performance topics, built on reusable templates for ongoing use.",
-      },
-      {
-        title: "An AI-assisted marketing workspace",
-        description:
-          "The system behind all of it: brand voice, customer profiles, and business facts live as context files, and content workflows are brand-agnostic and reusable, so any future campaign pulls the brand context automatically.",
-      },
-    ],
-    voiceDimensions: [
-      { label: "Casual", value: 8 },
-      { label: "Playful", value: 6 },
-      { label: "Simple", value: 7 },
-      { label: "Bold", value: 7 },
-    ],
-  },
+    },
+  ],
 
   workSamples: [
     {
@@ -201,20 +253,6 @@ const en = {
           href: "https://goatfs.com.au/2025/09/24/home-loans-for-self-employed-people-and-first-time-home-buyers/",
         },
       ],
-      designs: [] as { label: string; href: string }[],
-    },
-    {
-      company: "Panther Fit",
-      role: "Website Build, Local SEO & Brand Strategy",
-      meta: "Gym and personal training studio, Thái Nguyên, Vietnam · Project, August 2026",
-      link: { label: "Visit pantherfitt.com", href: "https://pantherfitt.com" },
-      points: [
-        "Website (live): designed, built and launched pantherfitt.com, a fast Vietnamese language site with home, about, services and contact pages, a mobile call bar, and a working contact form.",
-        "Local search: set up the Google Business Profile, verified the domain in Google Search Console and submitted the sitemap, and corrected the map coordinates from the real profile after the earlier estimate sat nearly 900 metres off.",
-        "Brand strategy: wrote the brand context, brand voice and ideal customer profile documents, positioning the studio on community and atmosphere first, the thing members actually mention when they refer a friend.",
-        "Technical setup: GitHub to Hostinger deployment, business email on its own domain with MX, SPF, DKIM and DMARC authentication.",
-      ],
-      posts: [] as { title: string; href: string }[],
       designs: [] as { label: string; href: string }[],
     },
     {
@@ -316,10 +354,6 @@ const vi: typeof en = {
       heading: "Một marketer toàn diện, cộng thêm lợi thế AI.",
       badge: "Điểm khác biệt",
     },
-    caseStudyPanel: {
-      heading: "Giọng thương hiệu, chấm điểm",
-      sub: "Từ báo cáo giọng thương hiệu dài 10 trang.",
-    },
     work: {
       eyebrow: "Dự án khác",
       heading: "Đã xuất bản, đã bàn giao, vẫn đang hoạt động.",
@@ -417,49 +451,103 @@ const vi: typeof en = {
     },
   ],
 
-  caseStudy: {
-    eyebrow: "Case Study tiêu biểu",
-    client: "MJ Health Nutrition & Fitness",
-    clientMeta: "Dinh dưỡng thể thao & huấn luyện hiệu suất · Sunshine Coast, QLD",
-    clientHref: "https://www.mjhealthnutrition.com.au/",
-    summary:
-      "Một dự án nghiên cứu và chiến lược đã hoàn thành: hệ thống marketing trọn vẹn từ thương hiệu đến chiến dịch cho một cơ sở do hai nhà sáng lập điều hành (một Chuyên gia dinh dưỡng thể thao được công nhận và một HLV thể lực S&C), giúp vận động viên tuổi teen và người lớn nạp năng lượng đúng và tập luyện đúng.",
-    context:
-      "Giai đoạn đầu tăng trưởng: Instagram mạnh và nhiều khách được giới thiệu, nhưng lịch hẹn thất thường, danh sách email bỏ ngủ đông, và chưa có nội dung nhắm vào nhóm giá trị nhất: vận động viên teen và phụ huynh thể thao.",
-    deliverables: [
-      {
-        title: "Phân tích giọng thương hiệu & nhận diện hình ảnh",
-        description:
-          "Báo cáo giọng thương hiệu 10 trang chắt lọc thành bộ hướng dẫn thực chiến: hình mẫu thương hiệu (Người dẫn đường + Người bạn), bốn chiều giọng điệu được chấm điểm, từ vựng nên dùng và cấm dùng, quy tắc giọng điệu theo từng ngữ cảnh, kèm phân tích hệ thống hình ảnh.",
+  caseStudies: [
+    {
+      eyebrow: "Case Study tiêu biểu",
+      client: "MJ Health Nutrition & Fitness",
+      clientMeta: "Dinh dưỡng thể thao & huấn luyện hiệu suất · Sunshine Coast, QLD",
+      clientHref: "https://www.mjhealthnutrition.com.au/",
+      summary:
+        "Một dự án nghiên cứu và chiến lược đã hoàn thành: hệ thống marketing trọn vẹn từ thương hiệu đến chiến dịch cho một cơ sở do hai nhà sáng lập điều hành (một Chuyên gia dinh dưỡng thể thao được công nhận và một HLV thể lực S&C), giúp vận động viên tuổi teen và người lớn nạp năng lượng đúng và tập luyện đúng.",
+      context:
+        "Giai đoạn đầu tăng trưởng: Instagram mạnh và nhiều khách được giới thiệu, nhưng lịch hẹn thất thường, danh sách email bỏ ngủ đông, và chưa có nội dung nhắm vào nhóm giá trị nhất: vận động viên teen và phụ huynh thể thao.",
+      deliverables: [
+        {
+          title: "Phân tích giọng thương hiệu & nhận diện hình ảnh",
+          description:
+            "Báo cáo giọng thương hiệu 10 trang chắt lọc thành bộ hướng dẫn thực chiến: hình mẫu thương hiệu (Người dẫn đường + Người bạn), bốn chiều giọng điệu được chấm điểm, từ vựng nên dùng và cấm dùng, quy tắc giọng điệu theo từng ngữ cảnh, kèm phân tích hệ thống hình ảnh.",
+        },
+        {
+          title: "Chiến lược định vị & khách hàng mục tiêu",
+          description:
+            "Phân tích cạnh tranh trên bốn nhóm đối thủ, tìm ra vùng đất trống: góc kể chuyện hai nhà sáng lập \"hai chuyên môn, một kế hoạch\" và giọng nói trực tiếp với phụ huynh thể thao mà chưa đối thủ nào dùng. Chân dung khách hàng lý tưởng chi tiết cho cả hai nhóm người mua.",
+        },
+        {
+          title: "Chiến dịch tái kích hoạt email: \"Try Juzzy Free\"",
+          description:
+            "Chiến lược chiến dịch 2 tuần hoàn chỉnh để đánh thức một danh sách chưa từng nhận email: bản brief đầy đủ kèm chuỗi 4 email sẵn sàng gửi, viết đúng giọng thương hiệu: tái kích hoạt, xoáy vào vấn đề, bằng chứng, và chốt.",
+        },
+        {
+          title: "Chuỗi carousel Instagram",
+          description:
+            "Bộ sáu carousel mang nhận diện thương hiệu về các chủ đề hiệu suất, dựng trên mẫu tái sử dụng để dùng lâu dài.",
+        },
+        {
+          title: "Không gian làm việc marketing ứng dụng AI",
+          description:
+            "Hệ thống đứng sau tất cả: giọng thương hiệu, chân dung khách hàng và dữ kiện doanh nghiệp nằm trong các tệp ngữ cảnh, quy trình nội dung dùng được cho mọi thương hiệu và tái sử dụng, để mọi chiến dịch tương lai tự động kéo đúng ngữ cảnh thương hiệu.",
+        },
+      ],
+      panel: {
+        type: "bars",
+        heading: "Giọng thương hiệu, chấm điểm",
+        sub: "Từ báo cáo giọng thương hiệu dài 10 trang.",
+        items: [
+          { label: "Thân mật", value: 8 },
+          { label: "Vui tươi", value: 6 },
+          { label: "Đơn giản", value: 7 },
+          { label: "Mạnh mẽ", value: 7 },
+        ] as CaseStudyItem[],
       },
-      {
-        title: "Chiến lược định vị & khách hàng mục tiêu",
-        description:
-          "Phân tích cạnh tranh trên bốn nhóm đối thủ, tìm ra vùng đất trống: góc kể chuyện hai nhà sáng lập \"hai chuyên môn, một kế hoạch\" và giọng nói trực tiếp với phụ huynh thể thao mà chưa đối thủ nào dùng. Chân dung khách hàng lý tưởng chi tiết cho cả hai nhóm người mua.",
+    },
+    {
+      eyebrow: "Case Study",
+      client: "Panther Fit",
+      clientMeta: "Phòng tập gym & PT 1 kèm 1 · Thái Nguyên",
+      clientHref: "https://pantherfitt.com",
+      summary:
+        "Một dự án thương hiệu, website và tìm kiếm địa phương đã hoàn thành cho phòng tập theo mô hình huấn luyện, vận hành hai gói dịch vụ trả phí ngay tại cơ sở: tập nhóm bootcamp và PT 1 kèm 1.",
+      context:
+        "Phòng tập tầm trung đang tăng trưởng nhanh, gần như toàn bộ khách mới đến từ giới thiệu và video organic trên Facebook, không chạy quảng cáo, không có hệ thống content, và chưa có mặt trên tìm kiếm Google. Rào cản thật chưa bao giờ là thời gian hay ngân sách, mà là không biết nói gì.",
+      deliverables: [
+        {
+          title: "Bối cảnh & định vị thương hiệu",
+          description:
+            "Xác định điều hội viên hài lòng nhắc đến đầu tiên khi giới thiệu bạn bè: cộng đồng và không khí, rồi đến tiện lợi và giá, rồi mới đến kết quả. Chỉ ra đối thủ thật là sự trì hoãn và ký ức về một phòng tập tệ, đồng thời gọi tên mâu thuẫn cốt lõi: sự thân thiện vừa là tài sản mạnh nhất, vừa là nỗi lo chưa nói ra.",
+        },
+        {
+          title: "Bộ hướng dẫn giọng thương hiệu",
+          description:
+            "Nói như một người bạn tình cờ là HLV giỏi: ấm áp, khích lệ, đời thường. Từ vựng nên dùng và nên tránh, quy tắc nên và không nên, ranh giới cứng với kiểu gym bro hô hào, miệt thị ngoại hình và guru sống khoẻ, kèm câu chữ mẫu cho caption, lời rủ bạn, hook video và trả lời về giá.",
+        },
+        {
+          title: "Chân dung khách hàng lý tưởng",
+          description:
+            "Một persona bao trọn cả hai nhóm khách, vì họ thường là cùng một người: người quay lại trong lo lắng, dân văn phòng bận rộn 30 đến 45 tuổi, mang ký ức xấu về phòng gym và hành động vì lời rủ của một người bạn tin cậy thay vì so sánh các phòng tập.",
+        },
+        {
+          title: "Xây dựng website (đang chạy)",
+          description:
+            "Thiết kế, dựng và đưa lên mạng pantherfitt.com bằng tiếng Việt: trang chủ, giới thiệu, dịch vụ và liên hệ, thanh gọi điện trên điện thoại, form liên hệ dùng email tên miền riêng đã xác thực, và video trang chủ chỉ tải trên màn hình lớn. Triển khai từ GitHub lên Hostinger.",
+        },
+        {
+          title: "Nền tảng tìm kiếm địa phương",
+          description:
+            "Lập Google Business Profile với bộ 13 ảnh về không gian, đội ngũ và lớp tập, xác minh tên miền trên Google Search Console, nộp sitemap, và sửa lại ghim bản đồ theo hồ sơ thật sau khi số ước lượng cũ lệch gần 900 mét.",
+        },
+      ],
+      panel: {
+        type: "ranked",
+        heading: "Định vị, theo thứ tự",
+        sub: "Điều hội viên hài lòng nhắc đến đầu tiên khi giới thiệu bạn bè.",
+        items: [
+          { label: "Cộng đồng & không khí", note: "Chính là thương hiệu. Điều được nói ra thành lời." },
+          { label: "Tiện lợi, vị trí & giá", note: "Lý do thực tế để gật đầu." },
+          { label: "Kết quả & chương trình tập", note: "Đúng và cần thiết, nhưng không phải điểm câu khách." },
+        ] as CaseStudyItem[],
       },
-      {
-        title: "Chiến dịch tái kích hoạt email: \"Try Juzzy Free\"",
-        description:
-          "Chiến lược chiến dịch 2 tuần hoàn chỉnh để đánh thức một danh sách chưa từng nhận email: bản brief đầy đủ kèm chuỗi 4 email sẵn sàng gửi, viết đúng giọng thương hiệu: tái kích hoạt, xoáy vào vấn đề, bằng chứng, và chốt.",
-      },
-      {
-        title: "Chuỗi carousel Instagram",
-        description:
-          "Bộ sáu carousel mang nhận diện thương hiệu về các chủ đề hiệu suất, dựng trên mẫu tái sử dụng để dùng lâu dài.",
-      },
-      {
-        title: "Không gian làm việc marketing ứng dụng AI",
-        description:
-          "Hệ thống đứng sau tất cả: giọng thương hiệu, chân dung khách hàng và dữ kiện doanh nghiệp nằm trong các tệp ngữ cảnh, quy trình nội dung dùng được cho mọi thương hiệu và tái sử dụng, để mọi chiến dịch tương lai tự động kéo đúng ngữ cảnh thương hiệu.",
-      },
-    ],
-    voiceDimensions: [
-      { label: "Thân mật", value: 8 },
-      { label: "Vui tươi", value: 6 },
-      { label: "Đơn giản", value: 7 },
-      { label: "Mạnh mẽ", value: 7 },
-    ],
-  },
+    },
+  ],
 
   workSamples: [
     {
@@ -488,20 +576,6 @@ const vi: typeof en = {
           href: "https://goatfs.com.au/2025/09/24/home-loans-for-self-employed-people-and-first-time-home-buyers/",
         },
       ],
-      designs: [] as { label: string; href: string }[],
-    },
-    {
-      company: "Panther Fit",
-      role: "Xây dựng website, SEO địa phương & Chiến lược thương hiệu",
-      meta: "Phòng tập gym và PT 1 kèm 1, Thái Nguyên · Dự án, tháng 8/2026",
-      link: { label: "Xem pantherfitt.com", href: "https://pantherfitt.com" },
-      points: [
-        "Website (đang chạy): thiết kế, dựng và đưa lên mạng pantherfitt.com, website tiếng Việt tải nhanh gồm trang chủ, giới thiệu, dịch vụ và liên hệ, có thanh gọi điện trên điện thoại và form liên hệ hoạt động.",
-        "Tìm kiếm địa phương: lập Google Business Profile, xác minh tên miền trên Google Search Console và nộp sitemap, sửa lại toạ độ bản đồ theo hồ sơ thật sau khi số ước lượng cũ lệch gần 900 mét.",
-        "Chiến lược thương hiệu: viết bộ tài liệu bối cảnh thương hiệu, giọng thương hiệu và chân dung khách hàng lý tưởng, định vị phòng tập bằng cộng đồng và không khí trước tiên, đúng điều hội viên nhắc đến khi giới thiệu bạn bè.",
-        "Kỹ thuật: triển khai từ GitHub lên Hostinger, email doanh nghiệp theo tên miền riêng với xác thực MX, SPF, DKIM và DMARC.",
-      ],
-      posts: [] as { title: string; href: string }[],
       designs: [] as { label: string; href: string }[],
     },
     {

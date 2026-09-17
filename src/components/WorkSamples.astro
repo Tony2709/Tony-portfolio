@@ -2,14 +2,12 @@
 import { Image } from "astro:assets";
 import goatLogo from "../assets/goat-logo.jpg";
 import circleLogo from "../assets/circle-logo.png";
-import pantherLogo from "../assets/panther-logo.jpg";
 import { getContent } from "../data/content";
 
 const { workSamples, ui } = getContent(Astro.currentLocale);
 
 const logos: Record<string, ImageMetadata> = {
   "GOAT Financial Services": goatLogo,
-  "Panther Fit": pantherLogo,
   "Circle Recruitment & HR": circleLogo,
 };
 ---
