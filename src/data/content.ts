@@ -204,6 +204,20 @@ const en = {
       designs: [] as { label: string; href: string }[],
     },
     {
+      company: "Panther Fit",
+      role: "Website Build, Local SEO & Brand Strategy",
+      meta: "Gym and personal training studio, Thái Nguyên, Vietnam · Project, August 2026",
+      link: { label: "Visit pantherfitt.com", href: "https://pantherfitt.com" },
+      points: [
+        "Website (live): designed, built and launched pantherfitt.com, a fast Vietnamese language site with home, about, services and contact pages, a mobile call bar, and a working contact form.",
+        "Local search: set up the Google Business Profile, verified the domain in Google Search Console and submitted the sitemap, and corrected the map coordinates from the real profile after the earlier estimate sat nearly 900 metres off.",
+        "Brand strategy: wrote the brand context, brand voice and ideal customer profile documents, positioning the studio on community and atmosphere first, the thing members actually mention when they refer a friend.",
+        "Technical setup: GitHub to Hostinger deployment, business email on its own domain with MX, SPF, DKIM and DMARC authentication.",
+      ],
+      posts: [] as { title: string; href: string }[],
+      designs: [] as { label: string; href: string }[],
+    },
+    {
       company: "Circle Recruitment & HR",
       role: "SEO & Research Reports",
       meta: "Recruitment and HR consultancy · Internship, Jul–Dec 2024",
@@ -474,6 +488,20 @@ const vi: typeof en = {
           href: "https://goatfs.com.au/2025/09/24/home-loans-for-self-employed-people-and-first-time-home-buyers/",
         },
       ],
+      designs: [] as { label: string; href: string }[],
+    },
+    {
+      company: "Panther Fit",
+      role: "Xây dựng website, SEO địa phương & Chiến lược thương hiệu",
+      meta: "Phòng tập gym và PT 1 kèm 1, Thái Nguyên · Dự án, tháng 8/2026",
+      link: { label: "Xem pantherfitt.com", href: "https://pantherfitt.com" },
+      points: [
+        "Website (đang chạy): thiết kế, dựng và đưa lên mạng pantherfitt.com, website tiếng Việt tải nhanh gồm trang chủ, giới thiệu, dịch vụ và liên hệ, có thanh gọi điện trên điện thoại và form liên hệ hoạt động.",
+        "Tìm kiếm địa phương: lập Google Business Profile, xác minh tên miền trên Google Search Console và nộp sitemap, sửa lại toạ độ bản đồ theo hồ sơ thật sau khi số ước lượng cũ lệch gần 900 mét.",
+        "Chiến lược thương hiệu: viết bộ tài liệu bối cảnh thương hiệu, giọng thương hiệu và chân dung khách hàng lý tưởng, định vị phòng tập bằng cộng đồng và không khí trước tiên, đúng điều hội viên nhắc đến khi giới thiệu bạn bè.",
+        "Kỹ thuật: triển khai từ GitHub lên Hostinger, email doanh nghiệp theo tên miền riêng với xác thực MX, SPF, DKIM và DMARC.",
+      ],
+      posts: [] as { title: string; href: string }[],
       designs: [] as { label: string; href: string }[],
     },
     {
