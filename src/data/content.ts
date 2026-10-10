@@ -165,6 +165,18 @@ const en = {
             "The system behind all of it: brand voice, customer profiles, and business facts live as context files, and content workflows are brand-agnostic and reusable, so any future campaign pulls the brand context automatically.",
         },
       ],
+      gallery: {
+        heading: "Instagram carousel series",
+        sub: "Six branded carousels built on reusable templates. Cover slides shown.",
+        items: [
+          { file: "carousel-1", caption: "Athlete Performance Audit: exactly what we test" },
+          { file: "carousel-2", caption: "Growing fast and feeling stiff, sore or clumsy?" },
+          { file: "carousel-3", caption: "The #1 reason female athletes stay stuck" },
+          { file: "carousel-4", caption: "Strength training does not make you bulky" },
+          { file: "carousel-5", caption: "Why tracking your performance matters" },
+          { file: "carousel-6", caption: "3 mistakes athletes make during the season" },
+        ],
+      },
       panel: {
         type: "bars",
         heading: "Brand voice, scored",
@@ -488,6 +500,18 @@ const vi: typeof en = {
             "Hệ thống đứng sau tất cả: giọng thương hiệu, chân dung khách hàng và dữ kiện doanh nghiệp nằm trong các tệp ngữ cảnh, quy trình nội dung dùng được cho mọi thương hiệu và tái sử dụng, để mọi chiến dịch tương lai tự động kéo đúng ngữ cảnh thương hiệu.",
         },
       ],
+      gallery: {
+        heading: "Chuỗi carousel Instagram",
+        sub: "Sáu carousel mang nhận diện thương hiệu, dựng trên mẫu tái sử dụng. Hiển thị slide bìa.",
+        items: [
+          { file: "carousel-1", caption: "Đánh giá hiệu suất vận động viên: chính xác những gì được kiểm tra" },
+          { file: "carousel-2", caption: "Lớn nhanh mà thấy cứng, mỏi hoặc vụng về?" },
+          { file: "carousel-3", caption: "Lý do số 1 khiến nữ vận động viên mãi giậm chân tại chỗ" },
+          { file: "carousel-4", caption: "Tập tạ không làm bạn to thô" },
+          { file: "carousel-5", caption: "Vì sao theo dõi hiệu suất lại quan trọng" },
+          { file: "carousel-6", caption: "3 sai lầm vận động viên hay mắc trong mùa giải" },
+        ],
+      },
       panel: {
         type: "bars",
         heading: "Giọng thương hiệu, chấm điểm",

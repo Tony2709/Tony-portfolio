@@ -10,6 +10,12 @@ const logos: Record<string, ImageMetadata> = {
   "MJ Health Nutrition & Fitness": mjLogo,
   "Panther Fit": pantherLogo,
 };
+
+const galleryImages = import.meta.glob<{ default: ImageMetadata }>("../assets/mj/*.webp", {
+  eager: true,
+});
+
+const galleryImage = (file: string) => galleryImages[`../assets/mj/${file}.webp`]?.default;
 ---
 
 <section id="case-study" class="mx-auto max-w-6xl px-6 py-20 md:py-28">
@@ -93,6 +99,28 @@ const logos: Record<string, ImageMetadata> = {
               )}
             </div>
           </div>
+
+          {study.gallery && (
+            <div class="mt-12 border-t border-line pt-10">
+              <h3 class="font-display text-xl text-ink">{study.gallery.heading}</h3>
+              <p class="mt-1 text-sm text-ink-soft">{study.gallery.sub}</p>
+              <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+                {study.gallery.items.map((shot) => (
+                  <figure class="group">
+                    <div class="overflow-hidden rounded-xl border border-line bg-surface">
+                      <Image
+                        src={galleryImage(shot.file)}
+                        alt={shot.caption}
+                        width={360}
+                        class="h-auto w-full transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <figcaption class="mt-2 text-xs leading-snug text-ink-soft">{shot.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          )}
         </article>
       ))
     }
