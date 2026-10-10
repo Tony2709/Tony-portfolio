@@ -93,6 +93,21 @@ const logos: Record<string, ImageMetadata> = {
               )}
             </div>
           </div>
+
+          {study.extracts && (
+            <div class="mt-12 border-t border-line pt-10">
+              <h3 class="font-display text-xl text-ink">{study.extracts.heading}</h3>
+              <p class="mt-1 text-sm text-ink-soft">{study.extracts.sub}</p>
+              <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                {study.extracts.blocks.map((block) => (
+                  <blockquote class="rounded-2xl border border-line bg-surface p-6">
+                    <p class="text-xs font-semibold uppercase tracking-wide text-accent">{block.label}</p>
+                    <p class="mt-3 text-sm leading-relaxed text-ink-soft">{block.body}</p>
+                  </blockquote>
+                ))}
+              </div>
+            </div>
+          )}
         </article>
       ))
     }

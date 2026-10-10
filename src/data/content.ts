@@ -165,6 +165,28 @@ const en = {
             "The system behind all of it: brand voice, customer profiles, and business facts live as context files, and content workflows are brand-agnostic and reusable, so any future campaign pulls the brand context automatically.",
         },
       ],
+      extracts: {
+        heading: "Inside the brand system",
+        sub: "Extracts from the brand voice guidelines and customer profiles written for this project.",
+        blocks: [
+          {
+            label: "Brand archetype",
+            body: "The Guide, methodical and supportive, walking athletes from confusion to clarity. Paired with The Friend, peer level and casual, from founders who competed themselves.",
+          },
+          {
+            label: "Brand essence, one sentence",
+            body: "Speaks with the energy and straight talk of a trusted teammate who holds a master's degree: direct, motivational, unapologetically practical. Signal phrase: \"Stop the guesswork.\"",
+          },
+          {
+            label: "Vocabulary, approved and banned",
+            body: "Use: fuel, track and apply, evidence based, BS free, game day. Never: diet culture terms like cheat day or detox, clinical jargon like macronutrient periodisation, vague wellness phrasing, and passive CTAs.",
+          },
+          {
+            label: "Two buyers, one decision",
+            body: "The sports parent aged 38 to 52 who manages the schedule, the meals and the worry, and the athlete who shows up. Most bookings involve both, so most content has to work for both.",
+          },
+        ],
+      },
       panel: {
         type: "bars",
         heading: "Brand voice, scored",
@@ -213,6 +235,28 @@ const en = {
             "Set up the Google Business Profile with a 13 image photo set covering the space, team and classes, verified the domain in Google Search Console, submitted the sitemap, and corrected the map pin from the real profile after the earlier estimate sat nearly 900 metres off.",
         },
       ],
+      extracts: {
+        heading: "Inside the brand system",
+        sub: "Extracts from the brand context, voice guidelines and customer profile written for this project.",
+        blocks: [
+          {
+            label: "The one line rule",
+            body: "Speak like a friend who happens to be a good coach. Warm, encouraging, everyday. Never gym bro, never wellness guru, never corporate brochure.",
+          },
+          {
+            label: "Who the real competitor is",
+            body: "Not other gyms. The competitor is procrastination, and the memory of a bad gym. Prospects are not comparing programmes across five studios, they are deciding whether walking into this room will be unpleasant.",
+          },
+          {
+            label: "The core tension",
+            body: "Friendliness is both the strongest asset and the unspoken worry. Every campaign promising warmth is a cheque the training floor has to cash, so fixing the first session experience is a marketing project, not just an operations one.",
+          },
+          {
+            label: "The anxious returner",
+            body: "One persona covering both buyer groups: 30 to 45, works full time, lives or works close by, carries a bad gym memory, and acts on a friend's invitation rather than an advert.",
+          },
+        ],
+      },
       panel: {
         type: "ranked",
         heading: "Positioning, ranked",
@@ -488,6 +532,28 @@ const vi: typeof en = {
             "Hệ thống đứng sau tất cả: giọng thương hiệu, chân dung khách hàng và dữ kiện doanh nghiệp nằm trong các tệp ngữ cảnh, quy trình nội dung dùng được cho mọi thương hiệu và tái sử dụng, để mọi chiến dịch tương lai tự động kéo đúng ngữ cảnh thương hiệu.",
         },
       ],
+      extracts: {
+        heading: "Bên trong hệ thống thương hiệu",
+        sub: "Trích từ bộ hướng dẫn giọng thương hiệu và chân dung khách hàng viết cho dự án này.",
+        blocks: [
+          {
+            label: "Hình mẫu thương hiệu",
+            body: "Người dẫn đường, bài bản và đồng hành, đưa vận động viên từ mơ hồ đến rõ ràng. Kết hợp với Người bạn, ngang hàng và thân tình, đến từ hai nhà sáng lập từng thi đấu.",
+          },
+          {
+            label: "Tinh thần thương hiệu, một câu",
+            body: "Nói với năng lượng và sự thẳng thắn của một người đồng đội đáng tin có bằng thạc sĩ: trực diện, truyền động lực, thực tế không màu mè. Câu nhận diện: \"Stop the guesswork.\"",
+          },
+          {
+            label: "Từ vựng nên dùng và cấm dùng",
+            body: "Nên dùng: nạp năng lượng, theo dõi và áp dụng, dựa trên bằng chứng, không vòng vo, ngày thi đấu. Không dùng: ngôn ngữ diet culture kiểu cheat day hay detox, thuật ngữ lâm sàng, lời lẽ wellness mơ hồ, và CTA bị động.",
+          },
+          {
+            label: "Hai người mua, một quyết định",
+            body: "Phụ huynh thể thao 38 đến 52 tuổi, người lo lịch tập, bữa ăn và mọi nỗi lo, cùng vận động viên là người thực sự đến tập. Phần lớn lượt đặt lịch liên quan cả hai, nên nội dung phải chạm được cả hai.",
+          },
+        ],
+      },
       panel: {
         type: "bars",
         heading: "Giọng thương hiệu, chấm điểm",
@@ -536,6 +602,28 @@ const vi: typeof en = {
             "Lập Google Business Profile với bộ 13 ảnh về không gian, đội ngũ và lớp tập, xác minh tên miền trên Google Search Console, nộp sitemap, và sửa lại ghim bản đồ theo hồ sơ thật sau khi số ước lượng cũ lệch gần 900 mét.",
         },
       ],
+      extracts: {
+        heading: "Bên trong hệ thống thương hiệu",
+        sub: "Trích từ bối cảnh thương hiệu, hướng dẫn giọng nói và chân dung khách hàng viết cho dự án này.",
+        blocks: [
+          {
+            label: "Quy tắc một dòng",
+            body: "Nói như một người bạn thân tình cờ là huấn luyện viên giỏi. Ấm áp, khích lệ, đời thường. Không bao giờ là gym bro, không bao giờ là guru sống khoẻ, không bao giờ là brochure công ty.",
+          },
+          {
+            label: "Đối thủ thật là ai",
+            body: "Không phải các phòng tập khác. Đối thủ là sự trì hoãn, và ký ức về một phòng tập tệ. Khách tiềm năng không ngồi so sánh giáo án giữa năm studio, họ đang cân nhắc xem bước vào căn phòng này có tệ hay không.",
+          },
+          {
+            label: "Mâu thuẫn cốt lõi",
+            body: "Sự thân thiện vừa là tài sản mạnh nhất, vừa là nỗi lo chưa nói ra. Mỗi chiến dịch hứa hẹn sự ấm áp là một tờ séc mà sàn tập phải thanh toán, nên sửa trải nghiệm buổi đầu tiên là một dự án marketing, không chỉ là chuyện vận hành.",
+          },
+          {
+            label: "Người quay lại trong lo lắng",
+            body: "Một persona bao trọn cả hai nhóm khách: 30 đến 45 tuổi, làm việc toàn thời gian, sống hoặc làm gần phòng tập, mang ký ức xấu về phòng gym, và hành động vì lời rủ của bạn bè chứ không vì quảng cáo.",
+          },
+        ],
+      },
       panel: {
         type: "ranked",
         heading: "Định vị, theo thứ tự",
