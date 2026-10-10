@@ -138,6 +138,7 @@ const en = {
         "A completed research and strategy project: a full brand-to-campaign marketing system for a dual-founder practice (an Accredited Sports Dietitian and an S&C Coach) helping teen and adult athletes fuel and train properly.",
       context:
         "Early growth stage: strong Instagram presence and referrals, but inconsistent bookings, a dormant email list, and no content targeting their most valuable niche: teen athletes and sports parents.",
+      banner: { alt: "MJ Health Nutrition & Fitness founders, an Accredited Sports Dietitian and an S&C Coach, in their Sunshine Coast gym" },
       deliverables: [
         {
           title: "Brand voice & visual identity analysis",
@@ -471,6 +472,7 @@ const vi: typeof en = {
         "Một dự án nghiên cứu và chiến lược đã hoàn thành: hệ thống marketing trọn vẹn từ thương hiệu đến chiến dịch cho một cơ sở do hai nhà sáng lập điều hành (một Chuyên gia dinh dưỡng thể thao được công nhận và một HLV thể lực S&C), giúp vận động viên tuổi teen và người lớn nạp năng lượng đúng và tập luyện đúng.",
       context:
         "Giai đoạn đầu tăng trưởng: Instagram mạnh và nhiều khách được giới thiệu, nhưng lịch hẹn thất thường, danh sách email bỏ ngủ đông, và chưa có nội dung nhắm vào nhóm giá trị nhất: vận động viên teen và phụ huynh thể thao.",
+      banner: { alt: "Hai nhà sáng lập MJ Health Nutrition & Fitness, một Chuyên gia dinh dưỡng thể thao được công nhận và một HLV thể lực S&C, tại phòng tập ở Sunshine Coast" },
       deliverables: [
         {
           title: "Phân tích giọng thương hiệu & nhận diện hình ảnh",

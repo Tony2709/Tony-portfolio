@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import mjLogo from "../assets/mj-logo.png";
+import mjHero from "../assets/mj-hero.webp";
 import pantherLogo from "../assets/panther-logo.jpg";
 import { getContent } from "../data/content";
 
@@ -9,6 +10,10 @@ const { caseStudies } = getContent(Astro.currentLocale);
 const logos: Record<string, ImageMetadata> = {
   "MJ Health Nutrition & Fitness": mjLogo,
   "Panther Fit": pantherLogo,
+};
+
+const banners: Record<string, ImageMetadata> = {
+  "MJ Health Nutrition & Fitness": mjHero,
 };
 ---
 
@@ -47,6 +52,17 @@ const logos: Record<string, ImageMetadata> = {
             <p class="mt-6 text-lg leading-relaxed text-ink-soft">{study.summary}</p>
             <p class="mt-4 text-base leading-relaxed text-ink-soft">{study.context}</p>
           </div>
+
+          {study.banner && banners[study.client] && (
+            <div class="mt-10 overflow-hidden rounded-2xl border border-line">
+              <Image
+                src={banners[study.client]}
+                alt={study.banner.alt}
+                width={1200}
+                class="h-auto w-full object-cover"
+              />
+            </div>
+          )}
 
           <div class="mt-14 grid gap-10 lg:grid-cols-[1.6fr_1fr]">
             <div class="grid gap-5 sm:grid-cols-2">
