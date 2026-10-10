@@ -3,13 +3,13 @@ export type CaseStudyItem = { label: string; value?: number; note?: string };
 const en = {
   site: {
     name: "Tony Quang",
-    title: "Digital Marketer: Content, SEO & AI-Assisted Growth",
+    title: "Digital Marketer: Content, SEO & Organic Growth",
     location: "Sydney, Australia",
     email: "ducquang2003@gmail.com",
     phone: "0489 299 005",
     linkedin: "https://www.linkedin.com/in/tonyquang/",
     description:
-      "Tony Quang is a Sydney-based digital marketer working across SEO, content, email, social and analytics, and building AI-assisted marketing systems that make it all faster and more consistent.",
+      "Tony Quang is a Sydney-based digital marketer working across SEO, content, email, social and analytics, and building the brand systems that keep all of it consistent.",
   },
 
   ui: {
@@ -28,7 +28,7 @@ const en = {
     },
     services: {
       eyebrow: "What I do",
-      heading: "A full-stack marketer, plus an AI-assisted edge.",
+      heading: "A full-stack marketer, with the system to back it up.",
       badge: "Differentiator",
     },
     work: {
@@ -70,10 +70,10 @@ const en = {
   ],
 
   hero: {
-    eyebrow: "Digital Marketer · Content, SEO & AI-Assisted Growth",
+    eyebrow: "Digital Marketer · Content, SEO & Organic Growth",
     headline: "Marketing that does the whole job: strategy, content, and the numbers to prove it.",
     subhead:
-      "Marketing Coordinator at GOAT Financial Services. Master of Marketing (Macquarie University). I work across the full stack of digital marketing: SEO, content, email, social, analytics, and I build AI-assisted workflows that make all of it faster and more consistent.",
+      "Marketing Coordinator at GOAT Financial Services. Master of Marketing (Macquarie University). I work across the full stack of digital marketing: SEO, content, email, social, analytics, and I build the workflows that make all of it faster and more consistent.",
     primaryCta: { label: "Get in touch", href: "mailto:ducquang2003@gmail.com" },
     secondaryCta: { label: "See my work", href: "#case-study" },
   },
@@ -83,7 +83,7 @@ const en = {
     paragraphs: [
       "Good marketing is rarely one skill. It is a system: brand voice, content, distribution, and measurement, each one dependent on the others. I work across all of it, on principle. Separating them was always the mistake.",
       "I started in recruitment marketing at Circle Recruitment & HR, then moved into financial services at GOAT Financial Services. Somewhere in between: a Master of Marketing from Macquarie University, on top of a business degree in finance and marketing from the University of Wollongong.",
-      "Here is what sets the work apart. I do not open a chat window and hope for the best. I build structured AI marketing workspaces: codified brand voice, customer profiles, and reusable workflows, so output stays on brand at scale while a human keeps the strategy. Search is shifting toward AI-generated answers; AEO and GEO are where I have already placed the bet.",
+      "Here is what sets the work apart. I build the system before the campaign: codified brand voice, customer profiles, and reusable workflows, so the output stays on brand at scale no matter who produces it. Most marketing does not fail for want of ideas. It fails because nothing holds the ideas together.",
       "The numbers matter, obviously. But tone is what I notice first. A brand that sounds like itself, whether a blunt sports coach or a financial services firm, is one that has been paid proper attention. Most have not.",
     ],
   },
@@ -92,7 +92,7 @@ const en = {
     {
       title: "Content & Brand Voice",
       description:
-        "Blog posts, landing pages, email sequences, and social content, always anchored to a documented brand voice. I codify how a brand speaks so every piece sounds consistent, whoever or whatever produces it.",
+        "Blog posts, landing pages, email sequences, and social content, always anchored to a documented brand voice. I codify how a brand speaks so every piece sounds consistent, whoever produces it.",
     },
     {
       title: "SEO & Organic Growth",
@@ -277,7 +277,7 @@ const en = {
         "Collaborate with SEO and content teams on keyword strategy, on-page optimisation, and organic visibility.",
         "Produce and optimise landing pages, blogs, and campaign messaging aligned with search intent.",
         "Track performance in Google Analytics to find traffic and conversion opportunities.",
-        "Apply AI tools to content creation, keyword ideation, and scalable content structuring.",
+        "Structure content at scale with repeatable templates, keyword research and a documented brand voice.",
         "Manage the company website end to end (WordPress/Elementor), including backups and migrations.",
         "Write and publish the monthly social media calendar and SEO blog content.",
       ],
@@ -324,10 +324,10 @@ const en = {
 const vi: typeof en = {
   site: {
     ...en.site,
-    title: "Digital Marketer: Content, SEO & Tăng trưởng cùng AI",
+    title: "Digital Marketer: Content, SEO & Tăng trưởng tự nhiên",
     location: "Sydney, Úc",
     description:
-      "Tony Quang là một digital marketer tại Sydney, làm việc trên toàn bộ các mảng SEO, content, email, mạng xã hội và phân tích dữ liệu, đồng thời xây dựng các hệ thống marketing ứng dụng AI giúp mọi thứ nhanh hơn và nhất quán hơn.",
+      "Tony Quang là một digital marketer tại Sydney, làm việc trên toàn bộ các mảng SEO, content, email, mạng xã hội và phân tích dữ liệu, đồng thời xây dựng các hệ thống thương hiệu giữ cho mọi thứ nhất quán.",
   },
 
   ui: {
@@ -346,7 +346,7 @@ const vi: typeof en = {
     },
     services: {
       eyebrow: "Công việc của tôi",
-      heading: "Một marketer toàn diện, cộng thêm lợi thế AI.",
+      heading: "Một marketer toàn diện, với hệ thống làm nền.",
       badge: "Điểm khác biệt",
     },
     work: {
@@ -388,10 +388,10 @@ const vi: typeof en = {
   ],
 
   hero: {
-    eyebrow: "Digital Marketer · Content, SEO & Tăng trưởng cùng AI",
+    eyebrow: "Digital Marketer · Content, SEO & Tăng trưởng tự nhiên",
     headline: "Marketing làm trọn cả công việc: chiến lược, nội dung, và những con số để chứng minh.",
     subhead:
-      "Marketing Coordinator tại GOAT Financial Services. Thạc sĩ Marketing (Đại học Macquarie). Tôi làm việc trên toàn bộ các mảng digital marketing: SEO, content, email, mạng xã hội, phân tích dữ liệu, và tôi xây dựng các quy trình ứng dụng AI giúp mọi thứ nhanh hơn, nhất quán hơn.",
+      "Marketing Coordinator tại GOAT Financial Services. Thạc sĩ Marketing (Đại học Macquarie). Tôi làm việc trên toàn bộ các mảng digital marketing: SEO, content, email, mạng xã hội, phân tích dữ liệu, và tôi xây dựng các quy trình giúp mọi thứ nhanh hơn, nhất quán hơn.",
     primaryCta: { label: "Liên hệ ngay", href: "mailto:ducquang2003@gmail.com" },
     secondaryCta: { label: "Xem dự án", href: "#case-study" },
   },
@@ -401,7 +401,7 @@ const vi: typeof en = {
     paragraphs: [
       "Marketing giỏi hiếm khi là một kỹ năng đơn lẻ. Nó là một hệ thống: giọng thương hiệu, nội dung, phân phối và đo lường, mảnh này phụ thuộc vào mảnh kia. Tôi làm việc trên tất cả, như một nguyên tắc. Tách rời chúng luôn là sai lầm.",
       "Tôi bắt đầu với marketing tuyển dụng tại Circle Recruitment & HR, rồi chuyển sang lĩnh vực tài chính tại GOAT Financial Services. Ở giữa hai chặng đó: tấm bằng Thạc sĩ Marketing của Đại học Macquarie, trên nền bằng cử nhân kinh doanh chuyên ngành tài chính và marketing của Đại học Wollongong.",
-      "Đây là điều làm nên khác biệt. Tôi không mở một cửa sổ chat rồi trông chờ may mắn. Tôi xây dựng các không gian làm việc AI có cấu trúc: giọng thương hiệu được quy chuẩn, chân dung khách hàng, và quy trình tái sử dụng, để sản phẩm luôn đúng thương hiệu ở quy mô lớn trong khi con người nắm chiến lược. Tìm kiếm đang dịch chuyển về phía câu trả lời do AI tạo ra; AEO và GEO là nơi tôi đã đặt cược từ trước.",
+      "Đây là điều làm nên khác biệt. Tôi xây dựng hệ thống trước khi chạy chiến dịch: giọng thương hiệu được quy chuẩn, chân dung khách hàng, và quy trình tái sử dụng, để sản phẩm luôn đúng thương hiệu ở quy mô lớn, bất kể ai là người làm ra nó. Phần lớn marketing thất bại không phải vì thiếu ý tưởng, mà vì không có gì giữ các ý tưởng lại với nhau.",
       "Những con số quan trọng, hiển nhiên. Nhưng giọng điệu là thứ tôi để ý đầu tiên. Một thương hiệu nghe đúng chất của mình, dù là một huấn luyện viên thể thao thẳng tính hay một công ty tài chính, là thương hiệu đã được chăm chút tử tế. Phần lớn thì không.",
     ],
   },
@@ -595,7 +595,7 @@ const vi: typeof en = {
         "Phối hợp với đội SEO và content về chiến lược từ khoá, tối ưu on-page và độ hiện diện tự nhiên.",
         "Sản xuất và tối ưu landing page, blog và thông điệp chiến dịch bám theo ý định tìm kiếm.",
         "Theo dõi hiệu quả trên Google Analytics để tìm cơ hội tăng truy cập và chuyển đổi.",
-        "Ứng dụng công cụ AI vào sáng tạo nội dung, gợi ý từ khoá và cấu trúc nội dung ở quy mô lớn.",
+        "Xây dựng nội dung ở quy mô lớn bằng mẫu tái sử dụng, nghiên cứu từ khoá và giọng thương hiệu đã văn bản hoá.",
         "Quản lý website công ty từ đầu đến cuối (WordPress/Elementor), gồm sao lưu và di dời.",
         "Viết và đăng lịch mạng xã hội hàng tháng cùng nội dung blog chuẩn SEO.",
       ],

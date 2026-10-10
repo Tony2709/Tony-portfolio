@@ -20,7 +20,7 @@ const svg = `
   <circle cx="1000" cy="480" r="360" fill="#4338ca" opacity="0.4" />
   <circle cx="1050" cy="150" r="220" fill="#818cf8" opacity="0.3" />
   <text x="80" y="260" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#f3efe6">Tony Quang</text>
-  <text x="80" y="320" font-family="Arial, sans-serif" font-size="34" fill="#818cf8">Digital Marketer: Content, SEO &amp; AI-Assisted Growth</text>
+  <text x="80" y="320" font-family="Arial, sans-serif" font-size="34" fill="#818cf8">Digital Marketer: Content, SEO &amp; Organic Growth</text>
   <text x="80" y="400" font-family="Arial, sans-serif" font-size="26" fill="#b9b2a4">Sydney, Australia</text>
   <rect x="80" y="440" width="120" height="6" rx="3" fill="#818cf8" />
 </svg>
