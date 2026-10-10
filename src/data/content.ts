@@ -120,12 +120,6 @@ const en = {
       description:
         "Google Analytics (GA4), KPI tracking, performance reporting, and conversion-focused page optimisation.",
     },
-    {
-      title: "AI-Assisted Marketing Systems",
-      description:
-        "My differentiator. Brand-agnostic AI workflows: context files that encode brand voice, ICPs, and business facts, so AI tools generate on-brand campaigns and creative briefs at scale. Foundational AEO/GEO knowledge for the emerging AI-search landscape.",
-      featured: true,
-    },
   ],
 
   caseStudies: [
@@ -444,12 +438,6 @@ const vi: typeof en = {
       title: "Phân tích & Chuyển đổi",
       description:
         "Google Analytics (GA4), theo dõi KPI, báo cáo hiệu quả và tối ưu trang theo hướng chuyển đổi.",
-    },
-    {
-      title: "Hệ thống Marketing ứng dụng AI",
-      description:
-        "Điểm khác biệt của tôi. Quy trình AI dùng được cho mọi thương hiệu: các tệp ngữ cảnh mã hoá giọng thương hiệu, chân dung khách hàng và dữ kiện doanh nghiệp, để công cụ AI tạo chiến dịch và brief sáng tạo đúng thương hiệu ở quy mô lớn. Nền tảng kiến thức AEO/GEO cho kỷ nguyên tìm kiếm bằng AI.",
-      featured: true,
     },
   ],
 
