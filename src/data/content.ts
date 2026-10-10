@@ -192,6 +192,7 @@ const en = {
         "A completed brand, website and local search project for a coaching led gym running two paid services on its own premises: small group bootcamp and one to one personal training.",
       context:
         "A fast growing, mid market studio winning almost every new member through referrals and organic Facebook video, with no paid advertising, no content system, and no presence on Google search. The real barrier was never time or budget. It was not knowing what to say.",
+      banner: { alt: "The Panther Fit coaching team in the gym in Thái Nguyên" },
       deliverables: [
         {
           title: "Brand context & positioning",
@@ -526,6 +527,7 @@ const vi: typeof en = {
         "Một dự án thương hiệu, website và tìm kiếm địa phương đã hoàn thành cho phòng tập theo mô hình huấn luyện, vận hành hai gói dịch vụ trả phí ngay tại cơ sở: tập nhóm bootcamp và PT 1 kèm 1.",
       context:
         "Phòng tập tầm trung đang tăng trưởng nhanh, gần như toàn bộ khách mới đến từ giới thiệu và video organic trên Facebook, không chạy quảng cáo, không có hệ thống content, và chưa có mặt trên tìm kiếm Google. Rào cản thật chưa bao giờ là thời gian hay ngân sách, mà là không biết nói gì.",
+      banner: { alt: "Đội ngũ huấn luyện viên Panther Fit tại phòng tập ở Thái Nguyên" },
       deliverables: [
         {
           title: "Bối cảnh & định vị thương hiệu",

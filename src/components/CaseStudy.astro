@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import mjLogo from "../assets/mj-logo.png";
 import mjHero from "../assets/mj-hero.webp";
 import pantherLogo from "../assets/panther-logo.jpg";
+import pantherHero from "../assets/panther-hero.webp";
 import { getContent } from "../data/content";
 
 const { caseStudies } = getContent(Astro.currentLocale);
@@ -14,6 +15,7 @@ const logos: Record<string, ImageMetadata> = {
 
 const banners: Record<string, ImageMetadata> = {
   "MJ Health Nutrition & Fitness": mjHero,
+  "Panther Fit": pantherHero,
 };
 ---
 
