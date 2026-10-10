@@ -55,6 +55,23 @@ const en = {
     },
   },
 
+  tools: {
+    heading: "Tools I work with",
+    items: [
+      { slug: "wordpress", name: "WordPress" },
+      { slug: "elementor", name: "Elementor" },
+      { slug: "googleanalytics", name: "Google Analytics" },
+      { slug: "googlesearchconsole", name: "Search Console" },
+      { slug: "semrush", name: "Semrush" },
+      { slug: "canva", name: "Canva" },
+      { slug: "meta", name: "Meta Business" },
+      { slug: "linkedin", name: "LinkedIn" },
+      { slug: "salesforce", name: "Salesforce" },
+      { slug: "adobe", name: "Adobe" },
+      { slug: "astro", name: "Astro" },
+    ],
+  },
+
   stats: [
     { value: "22%", label: "Lead quality lift at GOAT Financial Services" },
     { value: "4", label: "Deliverables in the flagship brand and campaign case study" },
@@ -371,6 +388,23 @@ const vi: typeof en = {
       rights: "Bảo lưu mọi quyền.",
       backToTop: "Về đầu trang ↑",
     },
+  },
+
+  tools: {
+    heading: "Công cụ tôi sử dụng",
+    items: [
+      { slug: "wordpress", name: "WordPress" },
+      { slug: "elementor", name: "Elementor" },
+      { slug: "googleanalytics", name: "Google Analytics" },
+      { slug: "googlesearchconsole", name: "Search Console" },
+      { slug: "semrush", name: "Semrush" },
+      { slug: "canva", name: "Canva" },
+      { slug: "meta", name: "Meta Business" },
+      { slug: "linkedin", name: "LinkedIn" },
+      { slug: "salesforce", name: "Salesforce" },
+      { slug: "adobe", name: "Adobe" },
+      { slug: "astro", name: "Astro" },
+    ],
   },
 
   stats: [

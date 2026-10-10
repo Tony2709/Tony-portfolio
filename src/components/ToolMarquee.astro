@@ -1,0 +1,81 @@
+---
+import { getContent } from "../data/content";
+
+const { tools } = getContent(Astro.currentLocale);
+
+const icons = import.meta.glob<string>("../assets/tools/*.svg", {
+  eager: true,
+  query: "?raw",
+  import: "default",
+});
+
+const icon = (slug: string) => icons[`../assets/tools/${slug}.svg`] ?? "";
+
+// Two identical tracks sit side by side so the loop never shows a gap.
+const track = [...tools.items, ...tools.items];
+---
+
+<section aria-labelledby="tools-heading" class="border-y border-line bg-bg-alt/50 py-12 md:py-16">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 id="tools-heading" class="text-center text-xs font-semibold uppercase tracking-wide text-ink-soft">
+      {tools.heading}
+    </h2>
+  </div>
+
+  <div class="marquee mt-8" role="list" aria-label={tools.heading}>
+    <div class="marquee-track">
+      {
+        track.map((tool, index) => (
+          <div
+            role="listitem"
+            aria-hidden={index >= tools.items.length ? "true" : undefined}
+            class="group flex shrink-0 items-center gap-3 px-7 text-ink-soft transition-colors duration-200 hover:text-highlight"
+            title={tool.name}
+          >
+            <span class="h-7 w-7 shrink-0 [&_svg]:h-full [&_svg]:w-full [&_path]:fill-current" set:html={icon(tool.slug)} />
+            <span class="whitespace-nowrap text-sm font-medium">{tool.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    /* Fade the edges so logos enter and leave softly rather than being cut. */
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 42s linear infinite;
+  }
+
+  .marquee:hover .marquee-track,
+  .marquee:focus-within .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      /* Half the track is one full copy of the list. */
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      overflow-x: auto;
+    }
+    .marquee-track {
+      animation: none;
+    }
+  }
+</style>
