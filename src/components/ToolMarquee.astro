@@ -29,11 +29,17 @@ const track = [...tools.items, ...tools.items];
           <div
             role="listitem"
             aria-hidden={index >= tools.items.length ? "true" : undefined}
-            class="group flex shrink-0 items-center gap-3 px-7 text-ink-soft transition-colors duration-200 hover:text-highlight"
+            class="flex shrink-0 items-center gap-3 px-7"
             title={tool.name}
           >
-            <span class="h-7 w-7 shrink-0 [&_svg]:h-full [&_svg]:w-full [&_path]:fill-current" set:html={icon(tool.slug)} />
-            <span class="whitespace-nowrap text-sm font-medium">{tool.name}</span>
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white ring-1 ring-line/60">
+              <span
+                class="h-5.5 w-5.5 [&_svg]:h-full [&_svg]:w-full [&_path]:fill-current"
+                style={`color: ${tool.color}`}
+                set:html={icon(tool.slug)}
+              />
+            </span>
+            <span class="whitespace-nowrap text-sm font-medium text-ink-soft">{tool.name}</span>
           </div>
         ))
       }
