@@ -77,7 +77,7 @@ const banners: Record<string, ImageMetadata> = {
               ))}
             </div>
 
-            <div class="rounded-2xl border border-line bg-bg-alt/70 p-6">
+            <div class="flex flex-col rounded-2xl border border-line bg-bg-alt/70 p-6">
               <h3 class="font-display text-lg text-ink">{study.panel.heading}</h3>
               <p class="mt-1 text-sm text-ink-soft">{study.panel.sub}</p>
               {study.panel.type === "bars" ? (
@@ -109,34 +109,37 @@ const banners: Record<string, ImageMetadata> = {
                   ))}
                 </ol>
               )}
+
+              {study.doc && (
+                <a
+                  href={study.doc.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group mt-8 block cursor-pointer rounded-xl border border-line bg-surface p-4 transition-colors duration-200 hover:border-accent"
+                >
+                  <span class="flex items-center gap-2.5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="h-4.5 w-4.5 shrink-0 text-accent"
+                    >
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" />
+                    </svg>
+                    <span class="text-sm font-medium text-ink transition-colors duration-200 group-hover:text-accent">
+                      {study.doc.label} ↗
+                    </span>
+                  </span>
+                  <span class="mt-1.5 block text-xs leading-snug text-ink-soft">{study.doc.note}</span>
+                </a>
+              )}
             </div>
           </div>
 
-          {study.doc && (
-            <a
-              href={study.doc.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group mt-8 flex cursor-pointer flex-wrap items-center gap-x-4 gap-y-1 rounded-2xl border border-line bg-surface px-6 py-5 transition-colors duration-200 hover:border-accent"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-5 w-5 shrink-0 text-accent"
-              >
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" />
-              </svg>
-              <span class="font-medium text-ink transition-colors duration-200 group-hover:text-accent">
-                {study.doc.label} ↗
-              </span>
-              <span class="text-sm text-ink-soft">{study.doc.note}</span>
-            </a>
-          )}
         </article>
       ))
     }
