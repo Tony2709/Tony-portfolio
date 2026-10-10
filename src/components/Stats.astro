@@ -9,7 +9,7 @@ const { stats } = getContent(Astro.currentLocale);
     {
       stats.map((stat) => (
         <div class="text-center sm:border-l sm:border-line sm:first:border-l-0 sm:px-6">
-          <p class="font-display text-4xl text-accent sm:text-5xl">{stat.value}</p>
+          <p class="font-display text-4xl text-highlight sm:text-5xl">{stat.value}</p>
           <p class="mt-2 text-sm leading-snug text-ink-soft">{stat.label}</p>
         </div>
       ))
