@@ -57,7 +57,7 @@ const en = {
 
   stats: [
     { value: "22%", label: "Lead quality lift at GOAT Financial Services" },
-    { value: "5", label: "Deliverables in the flagship brand and campaign case study" },
+    { value: "4", label: "Deliverables in the flagship brand and campaign case study" },
     { value: "3", label: "Certifications earned in 2025, from Google to Salesforce" },
   ],
 
@@ -160,11 +160,6 @@ const en = {
           description:
             "A series of six branded carousels on performance topics, built on reusable templates for ongoing use.",
         },
-        {
-          title: "An AI-assisted marketing workspace",
-          description:
-            "The system behind all of it: brand voice, customer profiles, and business facts live as context files, and content workflows are brand-agnostic and reusable, so any future campaign pulls the brand context automatically.",
-        },
       ],
       doc: {
         label: "See the brand system",
@@ -213,11 +208,6 @@ const en = {
           title: "Website build (live)",
           description:
             "Designed, built and launched pantherfitt.com in Vietnamese: home, about, services and contact pages, a mobile call bar, a contact form on its own authenticated domain email, and a homepage video that only loads on larger screens. Deployed from GitHub to Hostinger.",
-        },
-        {
-          title: "Local search foundations",
-          description:
-            "Set up the Google Business Profile with a 13 image photo set covering the space, team and classes, verified the domain in Google Search Console, submitted the sitemap, and corrected the map pin from the real profile after the earlier estimate sat nearly 900 metres off.",
         },
       ],
       doc: {
@@ -392,7 +382,7 @@ const vi: typeof en = {
 
   stats: [
     { value: "22%", label: "Mức cải thiện chất lượng khách hàng tiềm năng tại GOAT Financial Services" },
-    { value: "5", label: "Hạng mục bàn giao trong case study thương hiệu và chiến dịch tiêu biểu" },
+    { value: "4", label: "Hạng mục bàn giao trong case study thương hiệu và chiến dịch tiêu biểu" },
     { value: "3", label: "Chứng chỉ đạt được trong năm 2025, từ Google đến Salesforce" },
   ],
 
@@ -495,11 +485,6 @@ const vi: typeof en = {
           description:
             "Bộ sáu carousel mang nhận diện thương hiệu về các chủ đề hiệu suất, dựng trên mẫu tái sử dụng để dùng lâu dài.",
         },
-        {
-          title: "Không gian làm việc marketing ứng dụng AI",
-          description:
-            "Hệ thống đứng sau tất cả: giọng thương hiệu, chân dung khách hàng và dữ kiện doanh nghiệp nằm trong các tệp ngữ cảnh, quy trình nội dung dùng được cho mọi thương hiệu và tái sử dụng, để mọi chiến dịch tương lai tự động kéo đúng ngữ cảnh thương hiệu.",
-        },
       ],
       doc: {
         label: "Xem hệ thống thương hiệu",
@@ -548,11 +533,6 @@ const vi: typeof en = {
           title: "Xây dựng website (đang chạy)",
           description:
             "Thiết kế, dựng và đưa lên mạng pantherfitt.com bằng tiếng Việt: trang chủ, giới thiệu, dịch vụ và liên hệ, thanh gọi điện trên điện thoại, form liên hệ dùng email tên miền riêng đã xác thực, và video trang chủ chỉ tải trên màn hình lớn. Triển khai từ GitHub lên Hostinger.",
-        },
-        {
-          title: "Nền tảng tìm kiếm địa phương",
-          description:
-            "Lập Google Business Profile với bộ 13 ảnh về không gian, đội ngũ và lớp tập, xác minh tên miền trên Google Search Console, nộp sitemap, và sửa lại ghim bản đồ theo hồ sơ thật sau khi số ước lượng cũ lệch gần 900 mét.",
         },
       ],
       doc: {
