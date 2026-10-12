@@ -65,7 +65,6 @@ const en = {
       { file: "hostinger", name: "Hostinger" },
       { slug: "googleanalytics", name: "Google Analytics", color: "#E37400", label: true },
       { file: "googleads", name: "Google Ads" },
-      { slug: "googlesearchconsole", name: "Search Console", color: "#458CF5", label: true },
       { slug: "semrush", name: "Semrush", color: "#FF642D", label: true },
       { file: "hubspot", name: "HubSpot" },
       { file: "klaviyo", name: "Klaviyo" },
@@ -227,6 +226,7 @@ const en = {
             "Designed, built and launched pantherfitt.com in Vietnamese: home, about, services and contact pages, a mobile call bar, a contact form on its own authenticated domain email, and a homepage video that only loads on larger screens. Deployed from GitHub to Hostinger.",
         },
       ],
+      siteCta: { label: "Check their website" },
       doc: {
         label: "See the brand system",
         note: "PDF, 4 pages: brand context, voice guidelines and customer profile",
@@ -407,7 +407,6 @@ const vi: typeof en = {
       { file: "hostinger", name: "Hostinger" },
       { slug: "googleanalytics", name: "Google Analytics", color: "#E37400", label: true },
       { file: "googleads", name: "Google Ads" },
-      { slug: "googlesearchconsole", name: "Search Console", color: "#458CF5", label: true },
       { slug: "semrush", name: "Semrush", color: "#FF642D", label: true },
       { file: "hubspot", name: "HubSpot" },
       { file: "klaviyo", name: "Klaviyo" },
@@ -569,6 +568,7 @@ const vi: typeof en = {
             "Thiết kế, dựng và đưa lên mạng pantherfitt.com bằng tiếng Việt: trang chủ, giới thiệu, dịch vụ và liên hệ, thanh gọi điện trên điện thoại, form liên hệ dùng email tên miền riêng đã xác thực, và video trang chủ chỉ tải trên màn hình lớn. Triển khai từ GitHub lên Hostinger.",
         },
       ],
+      siteCta: { label: "Xem website của họ" },
       doc: {
         label: "Xem hệ thống thương hiệu",
         note: "PDF tiếng Anh, 4 trang: bối cảnh thương hiệu, hướng dẫn giọng nói và chân dung khách hàng",
