@@ -71,8 +71,15 @@ const initials = (org: string) =>
           {
             education.degrees.map((degree) => (
               <li class="flex items-start gap-3">
-                <span class="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1 ring-1 ring-line">
-                  {logoSvg(degree.logo) ? (
+                <span class="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1.5 ring-1 ring-line">
+                  {logoImage(degree.logo) ? (
+                    <Image
+                      src={logoImage(degree.logo)!}
+                      alt={`${degree.org} logo`}
+                      width={88}
+                      class="h-full w-full object-contain"
+                    />
+                  ) : logoSvg(degree.logo) ? (
                     <span
                       class="h-full w-full [&_svg]:h-full [&_svg]:w-full"
                       style={tint(degree.logo)}
