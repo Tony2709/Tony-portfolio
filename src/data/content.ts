@@ -40,12 +40,6 @@ const en = {
       eyebrow: "Experience",
       heading: "Where I've done the work.",
     },
-    education: {
-      eyebrow: "Education & certifications",
-      heading: "Always adding to the toolkit.",
-      degrees: "Degrees",
-      certifications: "Certifications",
-    },
     contact: {
       linkedin: "Connect on LinkedIn",
     },
@@ -326,16 +320,22 @@ const en = {
   ],
 
   education: {
+    eyebrow: "Check out",
+    heading: "My certifications",
+    intro:
+      "I keep adding to the toolkit between projects. These are the courses and memberships behind the work, alongside the two degrees that started it.",
+    ctaLabel: "See them on LinkedIn",
+    degreesLabel: "Degrees",
     degrees: [
-      { title: "Master of Marketing", org: "Macquarie University", year: "2025" },
-      { title: "Bachelor of Business (Finance & Marketing)", org: "University of Wollongong", year: "2024" },
+      { title: "Master of Marketing", org: "Macquarie University", year: "2025", logo: "macquarie" },
+      { title: "Bachelor of Business (Finance & Marketing)", org: "University of Wollongong", year: "2024", logo: "uow" },
     ],
     certifications: [
-      { title: "Sales and CRM Overview", org: "Salesforce", year: "January 2026" },
-      { title: "Salesforce Sales Operations", org: "Salesforce", year: "December 2025" },
-      { title: "AMI Student Member", org: "Australian Marketing Institute", year: "November 2025" },
-      { title: "Adobe Graphic Designer", org: "Adobe", year: "July 2025" },
-      { title: "Google Digital Marketing & E-Commerce", org: "Coursera", year: "June 2025" },
+      { title: "Google Digital Marketing & E-Commerce", org: "Coursera", year: "June 2025", image: "google-dme", logo: "coursera" },
+      { title: "Adobe Graphic Designer", org: "Adobe", year: "July 2025", image: "adobe-graphic-designer", logo: "adobe" },
+      { title: "Sales and CRM Overview", org: "Salesforce", year: "January 2026", logo: "salesforce" },
+      { title: "Salesforce Sales Operations", org: "Salesforce", year: "December 2025", logo: "salesforce" },
+      { title: "AMI Student Member", org: "Australian Marketing Institute", year: "November 2025", logo: "ami" },
     ],
   },
 
@@ -381,12 +381,6 @@ const vi: typeof en = {
     experience: {
       eyebrow: "Kinh nghiệm",
       heading: "Nơi tôi đã làm việc.",
-    },
-    education: {
-      eyebrow: "Học vấn & chứng chỉ",
-      heading: "Không ngừng bổ sung vào bộ công cụ.",
-      degrees: "Bằng cấp",
-      certifications: "Chứng chỉ",
     },
     contact: {
       linkedin: "Kết nối trên LinkedIn",
@@ -668,16 +662,22 @@ const vi: typeof en = {
   ],
 
   education: {
+    eyebrow: "Xem thêm",
+    heading: "Chứng chỉ của tôi",
+    intro:
+      "Giữa các dự án, tôi liên tục bổ sung vào bộ công cụ của mình. Đây là các khoá học và chứng nhận đứng sau công việc, cùng hai tấm bằng đã khởi đầu mọi thứ.",
+    ctaLabel: "Xem trên LinkedIn",
+    degreesLabel: "Bằng cấp",
     degrees: [
-      { title: "Thạc sĩ Marketing", org: "Đại học Macquarie", year: "2025" },
-      { title: "Cử nhân Kinh doanh (Tài chính & Marketing)", org: "Đại học Wollongong", year: "2024" },
+      { title: "Thạc sĩ Marketing", org: "Đại học Macquarie", year: "2025", logo: "macquarie" },
+      { title: "Cử nhân Kinh doanh (Tài chính & Marketing)", org: "Đại học Wollongong", year: "2024", logo: "uow" },
     ],
     certifications: [
-      { title: "Sales and CRM Overview", org: "Salesforce", year: "Tháng 1/2026" },
-      { title: "Salesforce Sales Operations", org: "Salesforce", year: "Tháng 12/2025" },
-      { title: "AMI Student Member", org: "Australian Marketing Institute", year: "Tháng 11/2025" },
-      { title: "Adobe Graphic Designer", org: "Adobe", year: "Tháng 7/2025" },
-      { title: "Google Digital Marketing & E-Commerce", org: "Coursera", year: "Tháng 6/2025" },
+      { title: "Google Digital Marketing & E-Commerce", org: "Coursera", year: "Tháng 6/2025", image: "google-dme", logo: "coursera" },
+      { title: "Adobe Graphic Designer", org: "Adobe", year: "Tháng 7/2025", image: "adobe-graphic-designer", logo: "adobe" },
+      { title: "Sales and CRM Overview", org: "Salesforce", year: "Tháng 1/2026", logo: "salesforce" },
+      { title: "Salesforce Sales Operations", org: "Salesforce", year: "Tháng 12/2025", logo: "salesforce" },
+      { title: "AMI Student Member", org: "Australian Marketing Institute", year: "Tháng 11/2025", logo: "ami" },
     ],
   },
 
