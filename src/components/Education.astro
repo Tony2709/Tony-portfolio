@@ -64,19 +64,19 @@ const initials = (org: string) =>
       </a>
 
       <div class="mt-10 border-t border-line pt-6">
-        <h3 class="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-highlight">
           {education.degreesLabel}
         </h3>
-        <ul class="mt-4 space-y-4">
+        <ul class="mt-5 space-y-5">
           {
             education.degrees.map((degree) => (
-              <li class="flex items-start gap-3">
-                <span class="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1.5 ring-1 ring-line">
+              <li class="flex items-start gap-4">
+                <span class="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-2 ring-1 ring-line">
                   {logoImage(degree.logo) ? (
                     <Image
                       src={logoImage(degree.logo)!}
                       alt={`${degree.org} logo`}
-                      width={88}
+                      width={128}
                       class="h-full w-full object-contain"
                     />
                   ) : logoSvg(degree.logo) ? (
@@ -86,12 +86,12 @@ const initials = (org: string) =>
                       set:html={logoSvg(degree.logo)}
                     />
                   ) : (
-                    <span class="font-display text-[11px] text-[#10243a]">{initials(degree.org)}</span>
+                    <span class="font-display text-base text-[#10243a]">{initials(degree.org)}</span>
                   )}
                 </span>
                 <span>
-                  <span class="block text-sm font-medium text-ink">{degree.title}</span>
-                  <span class="block text-sm text-ink-soft">
+                  <span class="block text-base font-semibold leading-snug text-ink">{degree.title}</span>
+                  <span class="mt-0.5 block text-sm text-ink-soft">
                     {degree.org} · {degree.year}
                   </span>
                 </span>
