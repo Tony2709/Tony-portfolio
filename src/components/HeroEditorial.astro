@@ -1,0 +1,71 @@
+---
+/**
+ * Astro wrapper for the editorial hero. It keeps the React island thin: every string comes from content.ts, so
+ * the English and Vietnamese pages share one component, and the images go through astro:assets first so the
+ * island only ever receives finished URLs.
+ */
+import { getImage } from "astro:assets";
+import Elias from "./ui/elias-author-hero";
+import heroPhoto from "../assets/tony-hero.png";
+import mjLogo from "../assets/mj-logo.png";
+import pantherLogo from "../assets/panther-logo.jpg";
+import goatLogo from "../assets/goat-logo.jpg";
+import { getContent } from "../data/content";
+
+const { heroEditorial, site } = getContent(Astro.currentLocale);
+
+// The cut-out portrait has to keep its alpha, so webp rather than jpeg. 1100px is roughly twice the height it
+// is ever displayed at, which covers retina without shipping the 6MB original.
+const PORTRAIT_WIDTH = 1100;
+const portrait = await getImage({
+  src: heroPhoto,
+  format: "webp",
+  width: PORTRAIT_WIDTH,
+  quality: 82,
+});
+const portraitHeight = Math.round((PORTRAIT_WIDTH * heroPhoto.height) / heroPhoto.width);
+
+// Client logos sit on a white tile on the case card, small enough that 320px is plenty.
+const logoSources: Record<string, ImageMetadata> = {
+  mj: mjLogo,
+  panther: pantherLogo,
+  goat: goatLogo,
+};
+
+const logos: Record<string, string> = Object.fromEntries(
+  await Promise.all(
+    Object.entries(logoSources).map(async ([key, src]) => [
+      key,
+      (await getImage({ src, format: "webp", width: 320, quality: 85 })).src,
+    ]),
+  ),
+);
+
+const cases = heroEditorial.cases.map(({ logo, ...study }) => ({
+  ...study,
+  logo: logos[logo] ? { src: logos[logo], alt: `${study.title} logo` } : undefined,
+}));
+---
+
+<Elias
+  client:load
+  name={{ first: "Tony", last: "Quang" }}
+  intro={{
+    roles: heroEditorial.roles,
+    headline: heroEditorial.headline,
+    description: heroEditorial.description,
+  }}
+  portrait={{
+    src: portrait.src,
+    alt: `${site.name}, a digital marketer in Sydney, giving a thumbs up`,
+    width: PORTRAIT_WIDTH,
+    height: portraitHeight,
+  }}
+  cases={cases}
+  caseCard={heroEditorial.card}
+  socialLinks={[
+    { label: "LinkedIn", href: site.linkedin },
+    { label: "Email", href: `mailto:${site.email}` },
+  ]}
+  motion={{ cursor: { readLabel: heroEditorial.cursorLabel } }}
+/>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -96,4 +96,18 @@
   .balance {
     text-wrap: balance;
   }
+}
+
+/**
+ * The editorial hero opens on a full page of ink. The site header is sticky and sits in the same stacking
+ * context, so it would paint on top of that splash; while the splash covers the page it sets `ea-splashing`
+ * on the document element and the header steps out of the way until the hero is revealed.
+ */
+body > header {
+  transition: opacity 0.4s ease;
+}
+
+html.ea-splashing body > header {
+  opacity: 0;
+  pointer-events: none;
 }

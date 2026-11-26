@@ -95,6 +95,53 @@ const en = {
     secondaryCta: { label: "See my work", href: "#case-study" },
   },
 
+  heroEditorial: {
+    roles: ["Digital Marketer", "Content & SEO", "Organic Growth"],
+    headline: ["Marketing that does", "the whole job, with", "numbers to prove it."],
+    description:
+      "Marketing Coordinator at GOAT Financial Services, with a Master of Marketing from Macquarie. I build the system before the campaign.",
+    card: { href: "#case-study", open: "Open", close: "Close and show the next case study", folio: "01" },
+    cursorLabel: "Click",
+    cases: [
+      {
+        label: "Featured case study",
+        title: "MJ Health",
+        logo: "mj",
+        coverLines: ["Brand", "to", "campaign"],
+        topics: ["Brand voice", "Campaign"],
+        colors: { cover: "#004e98", type: "#ebebeb", spine: "#ff6700" },
+        chapter: "The brief",
+        chapterTitle: "Fuel the athlete",
+        text:
+          "Strong Instagram and steady referrals, but bookings came and went, the email list sat dormant, and nothing spoke to the niche worth the most: teen athletes and their parents.",
+      },
+      {
+        label: "Case study",
+        title: "Panther Fit",
+        logo: "panther",
+        coverLines: ["Brand,", "site &", "local", "search"],
+        topics: ["Brand voice", "Local SEO"],
+        colors: { cover: "#10243a", type: "#ebebeb", spine: "#ff6700" },
+        chapter: "The brief",
+        chapterTitle: "Say it plainly",
+        text:
+          "A studio winning almost every member through referrals and organic video, with no content system and nothing on Google search. The barrier was never budget. It was not knowing what to say.",
+      },
+      {
+        label: "Current role",
+        title: "GOAT Financial",
+        logo: "goat",
+        coverLines: ["Full", "stack", "marketing"],
+        topics: ["SEO", "Content"],
+        colors: { cover: "#3a6ea5", type: "#ebebeb", spine: "#ff6700" },
+        chapter: "In the role",
+        chapterTitle: "Published and live",
+        text:
+          "Mortgage broking in Sydney: long form SEO articles, the monthly social calendar, audience research from ABS lending data, and full ownership of the WordPress site.",
+      },
+    ],
+  },
+
   about: {
     heading: "About me",
     paragraphs: [
@@ -435,6 +482,53 @@ const vi: typeof en = {
       "Marketing Coordinator tại GOAT Financial Services. Thạc sĩ Marketing (Đại học Macquarie). Tôi làm việc trên toàn bộ các mảng digital marketing: SEO, content, email, mạng xã hội, phân tích dữ liệu, và tôi xây dựng các quy trình giúp mọi thứ nhanh hơn, nhất quán hơn.",
     primaryCta: { label: "Liên hệ ngay", href: "mailto:ducquang2003@gmail.com" },
     secondaryCta: { label: "Xem dự án", href: "#case-study" },
+  },
+
+  heroEditorial: {
+    roles: ["Digital Marketer", "Content & SEO", "Tăng trưởng tự nhiên"],
+    headline: ["Marketing làm trọn", "cả công việc, với", "con số chứng minh."],
+    description:
+      "Marketing Coordinator tại GOAT Financial Services, Thạc sĩ Marketing (Đại học Macquarie). Tôi xây hệ thống trước khi chạy chiến dịch.",
+    card: { href: "#case-study", open: "Mở", close: "Đóng và xem case study tiếp theo", folio: "01" },
+    cursorLabel: "Nhấn",
+    cases: [
+      {
+        label: "Case study tiêu biểu",
+        title: "MJ Health",
+        logo: "mj",
+        coverLines: ["Thương", "hiệu đến", "chiến dịch"],
+        topics: ["Brand voice", "Chiến dịch"],
+        colors: { cover: "#004e98", type: "#ebebeb", spine: "#ff6700" },
+        chapter: "Đề bài",
+        chapterTitle: "Nuôi vận động viên",
+        text:
+          "Instagram mạnh và khách giới thiệu đều, nhưng lịch hẹn lên xuống thất thường, danh sách email bỏ không, và chưa có nội dung nào nói với nhóm giá trị nhất: vận động viên tuổi teen và phụ huynh.",
+      },
+      {
+        label: "Case study",
+        title: "Panther Fit",
+        logo: "panther",
+        coverLines: ["Thương", "hiệu, web", "& local", "search"],
+        topics: ["Brand voice", "Local SEO"],
+        colors: { cover: "#10243a", type: "#ebebeb", spine: "#ff6700" },
+        chapter: "Đề bài",
+        chapterTitle: "Nói cho rõ ràng",
+        text:
+          "Một phòng tập có gần như toàn bộ thành viên mới đến từ giới thiệu và video tự nhiên, không có hệ thống nội dung và không hiện trên Google. Rào cản chưa bao giờ là ngân sách, mà là không biết nói gì.",
+      },
+      {
+        label: "Công việc hiện tại",
+        title: "GOAT Financial",
+        logo: "goat",
+        coverLines: ["Marketing", "toàn", "diện"],
+        topics: ["SEO", "Content"],
+        colors: { cover: "#3a6ea5", type: "#ebebeb", spine: "#ff6700" },
+        chapter: "Trong vai trò",
+        chapterTitle: "Đã xuất bản",
+        text:
+          "Môi giới vay thế chấp tại Sydney: bài SEO dài, lịch social hằng tháng, nghiên cứu đối tượng từ dữ liệu cho vay của ABS, và toàn quyền quản lý website WordPress.",
+      },
+    ],
   },
 
   about: {
