@@ -99,9 +99,24 @@ const en = {
     roles: ["Digital Marketer", "Content & SEO", "Organic Growth"],
     headline: ["Marketing that does", "the whole job, with", "numbers to prove it."],
     description:
-      "Marketing Coordinator at GOAT Financial Services, with a Master of Marketing from Macquarie. I build the system before the campaign.",
+      "Marketing Coordinator at GOAT Financial Services. I build the system before the campaign.",
     card: { href: "#case-study", open: "Open", close: "Close and show the next case study", folio: "01" },
     cursorLabel: "Click",
+    letter: {
+      eyebrow: "How I work",
+      greeting: "Dear client,",
+      stamp: "Seal & send",
+      postmark: "Sydney",
+      seal: "TQ",
+      sealing: "Sealed and sent",
+      counter: "Promise",
+      messages: [
+        "I will build the system before the campaign.",
+        "I will write in your voice, not mine.",
+        "I will show you the numbers, not just the work.",
+        "I will make it repeatable, so it outlasts me.",
+      ],
+    },
     cases: [
       {
         label: "Featured case study",
@@ -488,9 +503,24 @@ const vi: typeof en = {
     roles: ["Digital Marketer", "Content & SEO", "Tăng trưởng tự nhiên"],
     headline: ["Marketing làm trọn", "cả công việc, với", "con số chứng minh."],
     description:
-      "Marketing Coordinator tại GOAT Financial Services, Thạc sĩ Marketing (Đại học Macquarie). Tôi xây hệ thống trước khi chạy chiến dịch.",
+      "Marketing Coordinator tại GOAT Financial Services. Tôi xây hệ thống trước khi chạy chiến dịch.",
     card: { href: "#case-study", open: "Mở", close: "Đóng và xem case study tiếp theo", folio: "01" },
     cursorLabel: "Nhấn",
+    letter: {
+      eyebrow: "Cách tôi làm việc",
+      greeting: "Kính gửi khách hàng,",
+      stamp: "Niêm phong",
+      postmark: "Sydney",
+      seal: "TQ",
+      sealing: "Đã niêm phong",
+      counter: "Lời hứa",
+      messages: [
+        "Tôi xây hệ thống trước khi chạy chiến dịch.",
+        "Tôi viết bằng giọng của bạn, không phải của tôi.",
+        "Tôi đưa bạn những con số, không chỉ sản phẩm.",
+        "Tôi làm để lặp lại được, không phụ thuộc vào tôi.",
+      ],
+    },
     cases: [
       {
         label: "Case study tiêu biểu",

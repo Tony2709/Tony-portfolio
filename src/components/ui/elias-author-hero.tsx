@@ -45,6 +45,25 @@ export interface EliasCase {
   text: string
 }
 
+export interface EliasLetter {
+  /** Small heading on the sheet and accessible name of the letter */
+  eyebrow: string
+  /** Greeting line, e.g. "Dear client," */
+  greeting: string
+  /** Label of the stamp that presses when a promise is finished */
+  stamp: string
+  /** Word printed in the postmark, above the date */
+  postmark: string
+  /** The monogram pressed into the wax seal */
+  seal: string
+  /** Caption shown with the sealed envelope */
+  sealing: string
+  /** The promises typed out one after another */
+  messages: string[]
+  /** Word before the counter, e.g. "Promise" (renders "Promise 01 / 04") */
+  counter: string
+}
+
 export interface EliasSocialLink {
   label: string
   href: string
@@ -52,11 +71,13 @@ export interface EliasSocialLink {
 
 export interface EliasMotion {
   /** When each part starts revealing, in seconds after the splash opens */
-  delays: { first: number; last: number; portrait: number; book: number; intro: number; socials: number }
+  delays: { first: number; last: number; portrait: number; book: number; pad: number; intro: number; socials: number }
   /** Gap between one letter of the name rising and the next, in seconds */
   letterStagger: number
   /** How far each layer drifts as the cursor crosses the hero, in px */
   depth: { portrait: number; first: number; last: number }
+  /** The self-writing letter, in seconds */
+  letter: { perCharacter: number; pauseAfterPunctuation: number; beforeSeal: number; press: number; sealHold: number }
   /** How far the card turns toward the cursor, in degrees */
   bookTilt: number
   /** How far the cover swings open on hover, in degrees */
@@ -90,6 +111,8 @@ export interface EliasProps {
   portrait?: { src: string; alt: string; width: number; height: number }
   /** Case studies shown one at a time in the card; omit to hide the card */
   cases?: EliasCase[]
+  /** The self-writing letter of working promises; omit to hide it */
+  letter?: EliasLetter
   /** Link and labels shared by the card */
   caseCard?: { href: string; open: string; close: string; folio: string }
   /** Social links at the bottom */
@@ -107,9 +130,10 @@ export interface EliasProps {
 const EASE = [0.16, 1, 0.3, 1] as const
 
 const DEFAULT_MOTION: EliasMotion = {
-  delays: { first: 0.1, last: 0.25, portrait: 0.4, book: 0.6, intro: 0.8, socials: 1.15 },
+  delays: { first: 0.1, last: 0.25, portrait: 0.4, book: 0.6, pad: 0.7, intro: 0.8, socials: 1.15 },
   letterStagger: 0.055,
   depth: { portrait: 14, first: 6, last: 9 },
+  letter: { perCharacter: 0.075, pauseAfterPunctuation: 0.36, beforeSeal: 1.4, press: 0.8, sealHold: 4.8 },
   bookTilt: 14,
   bookOpen: 34,
   bookCycle: 4.5,
@@ -140,10 +164,22 @@ interface EliasContextValue {
   IMAGES: { portrait: { src: string; alt: string; width: number; height: number } | undefined }
   CASES: EliasCase[]
   CASE_CARD: { href: string; open: string; close: string; folio: string }
+  LETTER: EliasLetter
   SOCIAL_LINKS: EliasSocialLink[]
   MOTION: EliasMotion
   SPLASH: EliasSplash
   REDUCED: boolean | undefined
+}
+
+const EMPTY_LETTER: EliasLetter = {
+  eyebrow: '',
+  greeting: '',
+  stamp: '',
+  postmark: '',
+  seal: '',
+  sealing: '',
+  messages: [],
+  counter: ''
 }
 
 const EliasContext = createContext< EliasContextValue | null >(null)
@@ -667,6 +703,196 @@ const SocialLinks = () => {
   )
 }
 
+type Stage = 'typing' | 'pressing' | 'sealing'
+
+// Tomorrow's date as the postmark shows it, read when the envelope is drawn
+const tomorrowLabel = () => {
+  const date = new Date()
+
+  date.setDate(date.getDate() + 1)
+
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+}
+
+const pad = (value: number) => String(value).padStart(2, '0')
+
+type EnvelopeProps = { date: string }
+
+/**
+ * The envelope from the back, built in code, and the sealing in four beats: the letter slides down into the
+ * pocket, the flap swings shut over it, the orange wax seal is pressed, and the postmark is stamped on the
+ * bottom fold
+ */
+const Envelope = ({ date }: EnvelopeProps) => {
+  const { LETTER } = useElias()
+  const reduceMotion = useReduce()
+
+  const timing = (delay: number, duration: number) =>
+    reduceMotion ? { duration: 0 } : { delay, duration, ease: EASE }
+
+  return (
+    <span aria-hidden className='ea-envelope'>
+      {/* The letter, behind the folds and in front of the envelope's back, so it disappears into the pocket */}
+      <m.span
+        className='ea-envelope-letter'
+        initial={{ transform: 'translateY(-78%)' }}
+        animate={{ transform: 'translateY(6%)' }}
+        transition={timing(0.2, 1.05)}
+      />
+      <span className='ea-envelope-side ea-envelope-left' />
+      <span className='ea-envelope-side ea-envelope-right' />
+      <span className='ea-envelope-bottom' />
+      <m.span
+        className='ea-envelope-flap'
+        initial={{ transform: 'rotateX(180deg)', opacity: 0 }}
+        animate={{ transform: 'rotateX(0deg)', opacity: 1 }}
+        transition={timing(1.2, 0.95)}
+      >
+        <span className='ea-envelope-flap-shape' />
+      </m.span>
+      <m.span
+        className='ea-wax-seal font-ea-display'
+        initial={{ transform: 'scale(2.2)', opacity: 0 }}
+        animate={{ transform: 'scale(1)', opacity: 1 }}
+        transition={timing(2.25, 0.55)}
+      >
+        {LETTER.seal}
+      </m.span>
+      <m.span
+        className='ea-postmark'
+        initial={{ transform: 'scale(1.7) rotate(-34deg)', opacity: 0 }}
+        animate={{ transform: 'scale(1) rotate(-12deg)', opacity: 1 }}
+        transition={timing(2.75, 0.55)}
+      >
+        <span>{LETTER.postmark}</span>
+        <span className='ea-postmark-date'>{date}</span>
+      </m.span>
+    </span>
+  )
+}
+
+/**
+ * The working promises, typed out one at a time like a typewriter. The stamp presses once a promise is
+ * finished, the sheet is packed into an envelope, sealed and postmarked; then a fresh sheet arrives with the
+ * next one. Under reduced motion the first promise simply rests, written.
+ */
+const PromiseLetter = () => {
+  const { LETTER, MOTION } = useElias()
+
+  const [index, setIndex] = useState(0)
+  const [typed, setTyped] = useState(0)
+  const [stage, setStage] = useState< Stage >('typing')
+
+  const waitedRef = useRef({ step: '', ms: 0 })
+
+  const reduceMotion = useReduce()
+  const started = useIntroStarted()
+  const onScreen = useHeroOnScreen()
+
+  const timing = MOTION.letter
+  const message = LETTER.messages[index]
+  const shown = reduceMotion ? message : message.slice(0, typed)
+  const finished = shown.length === message.length
+  const swap = reduceMotion ? { duration: 0 } : { duration: 0.75, ease: EASE }
+
+  /**
+   * One step of the loop at a time: the next character, the press, the sealing, then the next promise. Off
+   * screen or in a hidden tab it holds, and waitedRef keeps how long the step had waited so it picks up again
+   */
+  useEffect(() => {
+    if (!started || reduceMotion || !onScreen) return
+
+    let delay: number
+    let step: () => void
+
+    if (stage === 'typing' && typed < message.length) {
+      const previous = message[typed - 1] ?? ''
+
+      delay = timing.perCharacter + (/[,.]/.test(previous) ? timing.pauseAfterPunctuation : 0)
+      step = () => setTyped(count => count + 1)
+    } else if (stage === 'typing') {
+      delay = timing.beforeSeal
+      step = () => setStage('pressing')
+    } else if (stage === 'pressing') {
+      delay = timing.press
+      step = () => setStage('sealing')
+    } else {
+      delay = timing.sealHold
+
+      step = () => {
+        setIndex(current => (current + 1) % LETTER.messages.length)
+        setTyped(0)
+        setStage('typing')
+      }
+    }
+
+    const key = `${index}:${stage}:${typed}`
+    const waited = waitedRef.current.step === key ? waitedRef.current.ms : 0
+    const begun = performance.now() - waited
+    const timer = window.setTimeout(step, Math.max(0, delay * 1000 - waited))
+
+    return () => {
+      waitedRef.current = { step: key, ms: performance.now() - begun }
+      window.clearTimeout(timer)
+    }
+  }, [started, reduceMotion, onScreen, index, stage, typed, message, timing, LETTER.messages.length])
+
+  return (
+    <m.section
+      aria-label={LETTER.eyebrow}
+      className='ea-pad'
+      initial={{ clipPath: 'inset(0% 0% 0% 100%)' }}
+      animate={started ? { clipPath: 'inset(-10% -10% 0% -10%)' } : undefined}
+      transition={reveal(reduceMotion, MOTION.delays.pad, 1.15)}
+    >
+      {/* Screen readers get every promise once, as text, instead of each typed character */}
+      <p className='sr-only'>{`${LETTER.greeting} ${LETTER.messages.join(' ')}`}</p>
+
+      <div aria-hidden className='ea-pad-inner'>
+        <AnimatePresence mode='wait' initial={false}>
+          {stage !== 'sealing' ? (
+            <m.div
+              key={`sheet-${index}`}
+              className='ea-letter-sheet'
+              initial={{ opacity: 0, transform: 'translateY(28px) rotate(-1.4deg)' }}
+              animate={{ opacity: 1, transform: 'translateY(0px) rotate(-1.4deg)' }}
+              exit={{ opacity: 0, transform: 'translateY(40px) scale(0.94) rotate(-1.4deg)' }}
+              transition={swap}
+            >
+              <p className='ea-letter-eyebrow'>{LETTER.eyebrow}</p>
+              <span className={cn('ea-letter-stamp', finished && 'is-ready', stage === 'pressing' && 'is-pressed')}>
+                {LETTER.stamp}
+              </span>
+              <p className='ea-letter-greeting'>{LETTER.greeting}</p>
+              <p className='ea-letter-field ea-letter-read'>
+                {shown}
+                {stage === 'typing' && !reduceMotion && <span className='ea-letter-caret' />}
+              </p>
+              <p className='ea-letter-meta'>
+                {LETTER.counter} {pad(index + 1)} / {pad(LETTER.messages.length)}
+              </p>
+            </m.div>
+          ) : (
+            <m.div
+              key={`envelope-${index}`}
+              className='ea-letter-envelope-view'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, x: '70%', rotate: 8 }}
+              transition={reduceMotion ? { duration: 0 } : { duration: 0.9, ease: [0.6, 0, 0.35, 1] }}
+            >
+              <p className='ea-letter-eyebrow'>
+                {LETTER.sealing} · {tomorrowLabel()}
+              </p>
+              <Envelope date={tomorrowLabel()} />
+            </m.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </m.section>
+  )
+}
+
 const TURN_SPRING = { stiffness: 160, damping: 20, mass: 0.7 }
 
 // Opening is slower and heavier than the hover turn, like a real cover swinging over
@@ -997,7 +1223,7 @@ const SPOT_SPRING = { stiffness: 380, damping: 36, mass: 0.6 }
  * swapped for outlined type and a navy-and-orange duotone, like a light passed over a printer's proof.
  */
 const HeroSection = () => {
-  const { CASES, IMAGES, MOTION, NAME, REDUCED } = useElias()
+  const { CASES, IMAGES, LETTER: letter, MOTION, NAME, REDUCED } = useElias()
 
   const [opened, setOpened] = useState(false)
   const [spotReady, setSpotReady] = useState(false)
@@ -1198,6 +1424,7 @@ const HeroSection = () => {
 
             <AuthorIntro />
             <OnScreenContext.Provider value={onScreen}>
+              {letter.messages.length > 0 && <PromiseLetter />}
               {CASES.length > 0 && <FeaturedCase />}
             </OnScreenContext.Provider>
             <SocialLinks />
@@ -1228,6 +1455,7 @@ const BLOCK_CSS = `/* Theme tokens of the block, scoped to the component. These 
 
   --font-ea-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-ea-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-ea-mono: 'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
 }
 
 /* The utilities the block's own theme generated, defined here because the host's Tailwind does not know these tokens */
@@ -1268,6 +1496,9 @@ const BLOCK_CSS = `/* Theme tokens of the block, scoped to the component. These 
   .font-ea-sans {
     font-family: var(--font-ea-sans);
   }
+  .font-ea-mono {
+    font-family: var(--font-ea-mono);
+  }
 }
 
 /**
@@ -1279,7 +1510,7 @@ const BLOCK_CSS = `/* Theme tokens of the block, scoped to the component. These 
  */
 .ea-hero {
   --ea-gutter: 16px;
-  --ea-w: min(100cqw - 2 * var(--ea-gutter), 1440px);
+  --ea-w: min(100cqw - 2 * var(--ea-gutter), 1920px);
   container-type: inline-size;
   min-height: calc(100svh - var(--ea-chrome, 0px));
   overflow: clip;
@@ -1347,6 +1578,7 @@ const BLOCK_CSS = `/* Theme tokens of the block, scoped to the component. These 
   grid-template-areas:
     'figure'
     'intro'
+    'pad'
     'book'
     'socials';
   row-gap: 40px;
@@ -1514,6 +1746,7 @@ const BLOCK_CSS = `/* Theme tokens of the block, scoped to the component. These 
     grid-template-areas:
       'figure figure'
       'intro book'
+      'pad pad'
       'socials socials';
     column-gap: 32px;
   }
@@ -1524,16 +1757,287 @@ const BLOCK_CSS = `/* Theme tokens of the block, scoped to the component. These 
 }
 
 /**
+ * The letter of working promises. The area holds one view at a time: the sheet, or the sealed envelope. The
+ * sheet is the paper, tipped slightly as if just set down.
+ */
+.ea-pad {
+  grid-area: pad;
+  position: relative;
+}
+
+.ea-pad-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 380px;
+}
+
+.ea-letter-sheet,
+.ea-letter-envelope-view {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.ea-letter-sheet {
+  padding: 24px 22px 18px;
+  border-radius: 4px;
+  background: #fbfbfb;
+  box-shadow: 0 18px 40px -18px rgb(16 36 58 / 0.45);
+}
+
+.ea-letter-eyebrow {
+  padding-right: 64px;
+  color: var(--color-ea-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* Dim while a promise is being typed, full once it is finished, and pressed flat in orange as it seals */
+.ea-letter-stamp {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  padding: 0 0 0 0.16em;
+  border: 2px solid var(--color-ea-accent);
+  border-radius: 50%;
+  color: var(--color-ea-accent);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.35;
+  transform: rotate(12deg);
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s,
+    color 0.3s,
+    opacity 0.4s;
+}
+
+.ea-letter-stamp.is-ready {
+  opacity: 1;
+}
+
+.ea-letter-stamp.is-pressed {
+  background: var(--color-ea-accent);
+  color: var(--color-ea-page);
+  transform: rotate(0deg) scale(0.86);
+}
+
+.ea-letter-greeting {
+  display: block;
+  margin-top: 20px;
+  color: var(--color-ea-ink);
+  font-family: var(--font-ea-mono);
+  font-size: 17px;
+}
+
+.ea-letter-field {
+  flex: 1;
+  width: 100%;
+  min-height: 84px;
+  margin-top: 4px;
+  color: var(--color-ea-ink);
+  font-family: var(--font-ea-mono);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.ea-letter-read {
+  white-space: pre-wrap;
+}
+
+/* The typewriter's caret: an orange block that blinks after the last typed character */
+.ea-letter-caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  margin-left: 2px;
+  background: var(--color-ea-accent);
+  vertical-align: -0.2em;
+  animation: ea-caret 1s steps(2, jump-none) infinite;
+}
+
+@keyframes ea-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.ea-letter-meta {
+  margin-top: auto;
+  color: var(--color-ea-muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* The sealing view: its label above the envelope, both centred in the letter's space at every width */
+.ea-letter-envelope-view {
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+}
+
+/* The label here has no stamp to clear, so it drops the sheet's right inset and stays truly centred */
+.ea-letter-envelope-view .ea-letter-eyebrow {
+  padding-right: 0;
+}
+
+/**
+ * The envelope from the back: paper body, two side folds and a bottom fold meeting under a top flap hinged at
+ * the top edge. Sized in its own width (cqw) so the seal and postmark keep their proportions.
+ */
+.ea-envelope {
+  position: relative;
+  display: block;
+  width: min(100%, 320px);
+  aspect-ratio: 1.62;
+  border-radius: 6px;
+  background: #d9dde2;
+  box-shadow:
+    0 22px 40px -22px rgb(16 36 58 / 0.55),
+    0 2px 6px -2px rgb(16 36 58 / 0.18);
+  container-type: inline-size;
+  perspective: 900px;
+}
+
+.ea-envelope > span {
+  position: absolute;
+}
+
+/* The letter being packed: a folded sheet with a few typed lines, slid down behind the folds */
+.ea-envelope-letter {
+  inset: 6% 7% auto;
+  height: 86%;
+  border-radius: 3px;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 9cqw, rgb(16 36 58 / 0.22) 9cqw 9.6cqw) 12% 22% / 62% 40%
+      no-repeat,
+    #fbfbfb;
+  box-shadow: 0 2px 6px rgb(16 36 58 / 0.15);
+}
+
+.ea-envelope-side {
+  inset: 0;
+  border-radius: 6px;
+  background: #e2e6ea;
+}
+
+.ea-envelope-left {
+  clip-path: polygon(0 0, 52% 56%, 0 100%);
+}
+
+.ea-envelope-right {
+  clip-path: polygon(100% 0, 48% 56%, 100% 100%);
+}
+
+.ea-envelope-bottom {
+  inset: 0;
+  border-radius: 6px;
+  background: #eef1f4;
+  clip-path: polygon(0 100%, 50% 47%, 100% 100%);
+}
+
+/* The flap's soft shadow comes from a filter on its wrapper, since a clip-path would cut a box-shadow off */
+.ea-envelope-flap {
+  inset: 0 0 auto;
+  height: 60%;
+  filter: drop-shadow(0 3px 3px rgb(16 36 58 / 0.18));
+  transform-origin: top center;
+}
+
+.ea-envelope-flap-shape {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(to bottom, #ccd3da, #d6dce2);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+/* The wax seal, pressed where the flap's tip meets the folds: a slightly domed disc with a raised rim */
+.ea-wax-seal {
+  top: 60%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 17cqw;
+  aspect-ratio: 1;
+  margin: -8.5cqw 0 0 -8.5cqw;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff9248, var(--color-ea-accent) 55%, #c24b00);
+  box-shadow:
+    0 3px 6px rgb(16 36 58 / 0.3),
+    inset 0 0 0 0.9cqw rgb(255 255 255 / 0.16);
+  color: rgb(235 235 235 / 0.9);
+  font-size: 7.5cqw;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* A round postmark on the bottom fold, with cancellation bars running off to its left */
+.ea-postmark {
+  right: 7%;
+  bottom: 9%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  width: 23cqw;
+  aspect-ratio: 1;
+  border: 0.5cqw solid var(--color-ea-accent);
+  border-radius: 50%;
+  color: var(--color-ea-accent);
+  font-size: 2.6cqw;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.88;
+}
+
+.ea-postmark::before {
+  content: '';
+  position: absolute;
+  inset: 7%;
+  border: 0.25cqw solid currentColor;
+  border-radius: 50%;
+}
+
+.ea-postmark::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  right: 100%;
+  width: 26cqw;
+  height: 40%;
+  background: repeating-linear-gradient(to bottom, currentColor 0 0.4cqw, transparent 0.4cqw 2.2cqw);
+  opacity: 0.7;
+}
+
+.ea-postmark-date {
+  font-family: var(--font-ea-mono);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/**
  * Landscape screens from 1024px: the design's composition, measured on a 1280px grid in units of --ea-u, so
  * it scales with the container (1.0625px at 1440, never more). The canvas fills the hero.
  */
 @media (min-width: 1024px) and (min-aspect-ratio: 5/4) {
-  /**
-   * A size container here, so the composition's cqh is the hero's real height rather than the viewport's; the
-   * canvas inside it is positioned, so nothing depends on content to size this box
-   */
   .ea-hero {
-    container-type: size;
     display: grid;
     grid-template-rows: 1fr;
   }
@@ -1542,8 +2046,14 @@ const BLOCK_CSS = `/* Theme tokens of the block, scoped to the component. These 
    * Never shorter than the name, the introduction and the social links need at their smallest scale, so nothing
    * can collide; only a very short window scrolls
    */
+  /**
+   * The size container for the whole composition, so --ea-u and every position below are measured from the
+   * container the design actually occupies rather than the full window. The canvas inside is positioned, so
+   * nothing here depends on content to size this box.
+   */
   .ea-stage {
     position: relative;
+    container-type: size;
     min-height: calc(var(--ea-w) * 621 / 1600 + 40px);
     padding: 0;
   }
@@ -1697,9 +2207,65 @@ const BLOCK_CSS = `/* Theme tokens of the block, scoped to the component. These 
 
   .ea-intro-description {
     max-width: calc(240 * var(--ea-u));
-    font-size: max(14px, 15.5 * var(--ea-u));
+    /* Capped: past about 18px this runs past the room the composition reserves above the social links */
+    font-size: clamp(14px, 15.5 * var(--ea-u), 18px);
     line-height: 1.6;
     text-wrap: pretty;
+  }
+
+  /* Fills the space under the surname, sharing the card's right edge; the sheet runs off the bottom edge */
+  .ea-pad {
+    position: absolute;
+    z-index: 1;
+    top: calc(var(--ea-last-base) + 16 * var(--ea-u));
+    left: calc(620 * var(--ea-u));
+    width: calc(100% - 620 * var(--ea-u));
+    height: calc(100% - var(--ea-last-base) - 16 * var(--ea-u));
+  }
+
+  /**
+   * The sheet starts clear of the portrait's coat, which reaches the full width of the cut-out (1820 of its
+   * 2773px height) and drifts up to 14px with the cursor; the inset is measured from the portrait's real size
+   */
+  .ea-pad-inner {
+    min-height: 0;
+    padding: calc(14 * var(--ea-u)) calc(18 * var(--ea-u)) 0
+      max(
+        120 * var(--ea-u),
+        var(--ea-portrait-left) + var(--ea-portrait-h) * 1820 / 2773 - 620 * var(--ea-u) + 14px + 24 * var(--ea-u)
+      );
+  }
+
+  .ea-letter-sheet {
+    padding: calc(24 * var(--ea-u)) calc(26 * var(--ea-u)) calc(18 * var(--ea-u));
+    border-radius: 4px 4px 0 0;
+  }
+
+  .ea-letter-eyebrow,
+  .ea-letter-meta {
+    font-size: max(10px, 11 * var(--ea-u));
+  }
+
+  .ea-letter-stamp {
+    top: calc(16 * var(--ea-u));
+    right: calc(18 * var(--ea-u));
+    width: max(64px, 78 * var(--ea-u));
+    height: max(64px, 78 * var(--ea-u));
+    font-size: max(9px, 10.5 * var(--ea-u));
+  }
+
+  .ea-letter-greeting {
+    margin-top: calc(22 * var(--ea-u));
+    font-size: clamp(14px, 18 * var(--ea-u), 21px);
+  }
+
+  .ea-letter-field {
+    min-height: 0;
+    font-size: clamp(14px, 18 * var(--ea-u), 21px);
+  }
+
+  .ea-envelope {
+    width: min(100%, 330 * var(--ea-u));
   }
 
   /* Its card spans the first name's upper 200px and its caption ends just above the surname */
@@ -1857,6 +2423,12 @@ const BLOCK_CSS = `/* Theme tokens of the block, scoped to the component. These 
   to {
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ea-letter-caret {
+    animation: none;
   }
 }
 
@@ -2092,6 +2664,7 @@ const Elias = ({
   portrait,
   cases = [],
   caseCard = { href: '#case-study', open: 'Open', close: 'Close and show the next case study', folio: '01' },
+  letter,
   socialLinks = [],
   motion,
   splash,
@@ -2104,12 +2677,14 @@ const Elias = ({
     IMAGES: { portrait },
     CASES: cases,
     CASE_CARD: caseCard,
+    LETTER: letter ?? EMPTY_LETTER,
     SOCIAL_LINKS: socialLinks,
     MOTION: {
       ...DEFAULT_MOTION,
       ...motion,
       delays: { ...DEFAULT_MOTION.delays, ...motion?.delays },
       depth: { ...DEFAULT_MOTION.depth, ...motion?.depth },
+      letter: { ...DEFAULT_MOTION.letter, ...motion?.letter },
       spotlight: { ...DEFAULT_MOTION.spotlight, ...motion?.spotlight },
       cursor: { ...DEFAULT_MOTION.cursor, ...motion?.cursor }
     },
